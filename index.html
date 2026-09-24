@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoizCare | SIM-RS Terintegrasi & Modern - Standar Kemenkes Satu Sehat & BPJS</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Sistem Informasi Manajemen Rumah Sakit (SIMRS) modern terintegrasi terdepan di Indonesia. 40+ modul medis & administrasi, bridging Satu Sehat HL7 FHIR R4, BPJS VClaim & Antrol MJKN, RME multi-spesialisasi, dan kepatuhan akreditasi faskes. CV. Panda Global Teknologi.">
+  <meta name="keywords" content="SIMRS Tipe C, SIMRS Terbaik Riau, Rekam Medis Elektronik Terintegrasi, Bridging Satu Sehat BPJS, Vendor SIMRS Indonesia, CV Panda Global Teknologi, RME Odontogram, Software Rumah Sakit, MoizCare">
+  <meta name="author" content="CV. Panda Global Teknologi">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.moizcare.com/">
+  <meta property="og:title" content="MoizCare | SIM-RS Terintegrasi & Modern">
+  <meta property="og:description" content="Transformasi Layanan Kesehatan Melalui SIM-RS Terintegrasi & Modern. 100% Siap Satu Sehat & BPJS Health Bridging.">
+  <meta property="og:image" content="assets/moizcare_hero_ui.jpg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "MoizCare SIMRS",
+    "operatingSystem": "Web, Cloud, On-Premise Proxmox VE",
+    "applicationCategory": "HealthApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "250000000",
+      "priceCurrency": "IDR",
+      "seller": {
+        "@type": "Organization",
+        "name": "CV. Panda Global Teknologi"
+      }
+    },
+    "description": "Sistem Informasi Manajemen Rumah Sakit terintegrasi dengan Rekam Medis Elektronik (RME), Satu Sehat Kemenkes, dan BPJS VClaim."
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       Header / Navigation Bar
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="#beranda" class="brand-logo" title="MoizCare SIMRS">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Moiz<span>Care</span></span>
+          <span class="brand-sub">by CV. Panda Global Teknologi</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="#beranda" class="nav-link active">Beranda</a></li>
+          <li><a href="#keunggulan" class="nav-link">Keunggulan</a></li>
+          <li><a href="#modul" class="nav-link">Modul SIMRS</a></li>
+          <li><a href="#kepatuhan" class="nav-link">Interoperabilitas</a></li>
+          <li><a href="#portofolio" class="nav-link">Mitra Klien</a></li>
+          <li><a href="#investasi" class="nav-link">Skema Investasi</a></li>
+          <li><a href="#roadmap" class="nav-link">Roadmap</a></li>
+          <li><a href="#kontak" class="nav-link">Kontak</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav CTA Actions -->
+      <div class="nav-actions">
+        <a href="https://wa.me/6285365811832?text=Halo%20MoizCare%2C%20saya%20ingin%20konsultasi%20mengenai%20SIMRS%20Rumah%20Sakit" target="_blank" class="btn btn-whatsapp btn-sm" id="navWaBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.288.043.088.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
+          </svg>
+          <span>WhatsApp</span>
+        </a>
+        <a href="#kontak" class="btn btn-primary btn-sm">Minta Demo</a>
+        <button class="hamburger-btn" aria-label="Buka Menu Navigasi" id="hamburgerBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       Hero Section
+       ========================================================================== -->
+  <section class="hero-section" id="beranda">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="badge-pill hero-pill">
+          <span class="pulse-indicator"></span>
+          <span>SIMRS Generasi Baru • Standar Kemenkes & BPJS</span>
+        </div>
+
+        <h1 class="hero-title">
+          Transformasi Layanan Kesehatan Melalui <span class="text-gradient-cyan">SIM-RS Terintegrasi</span> & Modern
+        </h1>
+
+        <p class="hero-description">
+          Sistem Informasi Manajemen Rumah Sakit yang andal, aman, berstandar Kemenkes RI (Satu Sehat), BPJS Health Bridging, dan siap mendukung akreditasi faskes Anda tanpa biaya tersembunyi.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#kontak" class="btn btn-primary btn-lg" id="heroDemoBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            <span>Jadwalkan Live Demo</span>
+          </a>
+
+          <a href="#portofolio" class="btn btn-secondary btn-lg" id="heroPortfolioBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+            <span>Lihat Portofolio Klien</span>
+          </a>
+        </div>
+
+        <!-- 4 Key Metrics Badges -->
+        <div class="hero-stats-row">
+          <div class="stat-item">
+            <span class="stat-value text-gradient-cyan">40+</span>
+            <span class="stat-label">Modul Medis & Administrasi Lengkap</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value text-cyan">100%</span>
+            <span class="stat-label">Kompatibel Satu Sehat (HL7 FHIR R4)</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value text-gradient-magenta">&lt;100ms</span>
+            <span class="stat-label">Kecepatan Akses Query Database</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value text-emerald">READY</span>
+            <span class="stat-label">Standardisasi Akreditasi RS KARS/LAM-KPRS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Mockup -->
+      <div class="hero-visual">
+        <div class="mockup-container">
+          <img src="assets/moizcare_hero_ui.jpg" alt="MoizCare SIMRS Dashboard Preview" class="mockup-image lightbox-trigger" data-caption="Dashboard Utama MoizCare: Monitoring Pasien, RME Terpadu, dan Status Sinkronisasi Satu Sehat">
+          
+          <!-- Floating Badge Top Right -->
+          <div class="floating-badge floating-badge-top">
+            <div class="floating-badge-icon badge-icon-cyan">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div class="floating-badge-text">
+              <span class="floating-badge-title">Satu Sehat Terhubung</span>
+              <span class="floating-badge-sub">67+ Resource FHIR R4 Valid</span>
+            </div>
+          </div>
+
+          <!-- Floating Badge Bottom Left -->
+          <div class="floating-badge floating-badge-bottom">
+            <div class="floating-badge-icon badge-icon-magenta">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 14 14"></polyline>
+              </svg>
+            </div>
+            <div class="floating-badge-text">
+              <span class="floating-badge-title">Query Ultra Cepat &lt;100ms</span>
+              <span class="floating-badge-sub">Proxmox VE + Redis In-Memory</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Value Propositions (4 Pilar Utama)
+       ========================================================================== -->
+  <section class="section" id="keunggulan">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill">4 Pilar Solusi MoizCare</div>
+        <h2 class="section-title">Mengapa Rumah Sakit Memilih <span class="text-gradient-cyan">MoizCare</span>?</h2>
+        <p class="section-subtitle">
+          Arsitektur terintegrasi yang menjawab seluruh kebutuhan klinis, operasional, akuntansi, dan regulasi pemerintah dalam satu platform tunggal.
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+        <!-- Pillar 1 -->
+        <div class="glass-card pillar-card">
+          <div class="pillar-icon-box">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+          </div>
+          <h3 class="pillar-title">Rekam Medis Elektronik (RME) Terpadu</h3>
+          <p class="pillar-desc">
+            Sesuai Permenkes 24/2022. Dilengkapi format SOAP/CPPT terpadu, lembar status lokalis anatomis, odontogram interaktif, dan tanda tangan digital (TTE).
+          </p>
+          <ul class="pillar-features-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Template Spesialisasi Dokter Lengkap</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Canvas Status Lokalis Digital</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Odontogram Standar FDI & Kemenkes</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="glass-card pillar-card">
+          <div class="pillar-icon-box">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+          </div>
+          <h3 class="pillar-title">Interoperabilitas Satu Sehat & BPJS</h3>
+          <p class="pillar-desc">
+            Bridging resmi Kemenkes RI (HL7 FHIR R4) dan BPJS Kesehatan (VClaim, Antrol V2 MJKN, Aplicares, iCare, dan HFIS) tanpa plugin eksternal berbayar.
+          </p>
+          <ul class="pillar-features-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Auto-Mapping ICD-10, ICD-9 CM & KFA</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Sinkronisasi VClaim & SEP Real-Time</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Antrean Online Mobile JKN 7 Task Id</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="glass-card pillar-card">
+          <div class="pillar-icon-box">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+          </div>
+          <h3 class="pillar-title">Rantai Pasok Farmasi & Multi-Depo</h3>
+          <p class="pillar-desc">
+            Kontrol stok obat & BHP medis real-time dengan metode FIFO/FEFO, sistem peringatan kadaluarsa dini, transfer antar depo, dan E-Resep otomatis.
+          </p>
+          <ul class="pillar-features-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Manajemen Multi-Depo & Gudang Induk</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Perhitungan E-Resep Racikan Presisi</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Otomatisasi Reorder Point (ROP)</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="glass-card pillar-card">
+          <div class="pillar-icon-box">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="20" x2="18" y2="10"></line>
+              <line x1="12" y1="20" x2="12" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+          </div>
+          <h3 class="pillar-title">Dashboard Bisnis & Keuangan Eksekutif</h3>
+          <p class="pillar-desc">
+            Transparansi penuh performa rumah sakit bagi C-Level. Visualisasi real-time cashflow, billing rawat inap/jalan, piutang BPJS, dan perhitungan jasa medis dokter.
+          </p>
+          <ul class="pillar-features-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>13 Sub-Modul Akuntansi & Kasir Terpadu</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Kalkulasi Otomatis Jasa Medis & Insentif</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Executive Hospital Command Center</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Interactive Module & Feature Showcase (5 Tabs)
+       ========================================================================== -->
+  <section class="section" id="modul">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill">Fitur Lengkap 40+ Modul</div>
+        <h2 class="section-title">Eksplorasi Modul Interaktif <span class="text-gradient-cyan">MoizCare</span></h2>
+        <p class="section-subtitle">
+          Uji coba langsung beberapa fitur unggulan kami secara interaktif di bawah ini, mulai dari odontogram gigi, panggil antrean suara, hingga struktur interoperabilitas Satu Sehat.
+        </p>
+      </div>
+
+      <!-- Tab Navigation Buttons -->
+      <div class="module-tabs-nav">
+        <button class="tab-btn active" data-tab="tab-rme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
+          <span>Rawat Jalan & RME Spesifik</span>
+        </button>
+        <button class="tab-btn" data-tab="tab-antrean">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+          <span>Antrean & Kios Mandiri</span>
+        </button>
+        <button class="tab-btn" data-tab="tab-satusehat">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          <span>Integrasi Satu Sehat & BPJS</span>
+        </button>
+        <button class="tab-btn" data-tab="tab-keuangan">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          <span>Billing & Keuangan Eksekutif</span>
+        </button>
+        <button class="tab-btn" data-tab="tab-operasional">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          <span>Operasional & Asisten AI</span>
+        </button>
+      </div>
+
+      <!-- Tab 1: Rawat Jalan & RME Spesifik -->
+      <div class="tab-content active" id="tab-rme">
+        <div class="tab-panel-grid">
+          <div class="tab-details">
+            <span class="badge-pill module-badge-tag">Modul RME Spesialisasi</span>
+            <h3>Dokumentasi Medis Presisi, Cepat & Terstandar Kemenkes</h3>
+            <p>
+              Dilengkapi anatomi status lokalis dengan kanvas interaktif, odontogram dental charting standar internasional, format pengkajian nyeri anak/dewasa, dan sertifikasi TTE BSrE untuk validitas rekam medis digital tanpa kertas.
+            </p>
+
+            <div class="feature-check-grid">
+              <div class="check-item">
+                <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                <div class="check-text">
+                  <h5>Status Lokalis Anatomi</h5>
+                  <p>Tandai lokasi trauma/lesi langsung pada diagram tubuh digital.</p>
+                </div>
+              </div>
+              <div class="check-item">
+                <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                <div class="check-text">
+                  <h5>Odontogram Poli Gigi</h5>
+                  <p>Pencatatan kondisi tiap elemen gigi 11-48 secara interaktif.</p>
+                </div>
+              </div>
+              <div class="check-item">
+                <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                <div class="check-text">
+                  <h5>Skala Nyeri FLACC & VAS</h5>
+                  <p>Skrining nyeri otomatis dengan rekomendasi intervensi obat.</p>
+                </div>
+              </div>
+              <div class="check-item">
+                <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                <div class="check-text">
+                  <h5>TTE Terintegrasi BSrE</h5>
+                  <p>Tanda tangan elektronik bersertifikat untuk dokter & perawat.</p>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 1rem;">
+              <a href="#" class="btn btn-secondary btn-sm lightbox-trigger" data-full="assets/moizcare_features_preview.jpg" data-caption="Pratinjau Antarmuka Rekam Medis Elektronik Poli Gigi & Status Lokalis MoizCare">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <span>Perbesar Tangkapan Layar RME</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Interactive Demo Widget: Odontogram & Pain Scale -->
+          <div class="tab-interactive-container">
+            <div class="interactive-header">
+              <span class="interactive-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
+                Simulasi Odontogram Gigi Interaktif
+              </span>
+              <span class="badge-pill badge-magenta">Live Demo</span>
+            </div>
+
+            <div class="odontogram-tool">
+              <!-- Selector -->
+              <div class="dental-status-selector">
+                <span style="font-size:0.75rem; color:var(--text-muted); align-self:center; margin-right:4px;">Pilih Status:</span>
+                <button type="button" class="dental-option active" data-condition="karies">Karies (Merah)</button>
+                <button type="button" class="dental-option" data-condition="tambalan">Tambalan (Biru)</button>
+                <button type="button" class="dental-option" data-condition="cabut">Missing / Cabut (✕)</button>
+                <button type="button" class="dental-option" data-condition="normal">Normal</button>
+              </div>
+
+              <!-- Dental Grid -->
+              <div class="dental-grid">
+                <!-- Upper Arch -->
+                <div style="font-size:0.7rem; color:var(--text-muted); text-align:center; margin-bottom:2px;">RAHANG ATAS (MAXILLA)</div>
+                <div class="dental-arch">
+                  <div class="tooth-item" data-tooth="18"><span class="tooth-num">18</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item status-tambalan" data-tooth="17"><span class="tooth-num">17</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item status-karies" data-tooth="16"><span class="tooth-num">16</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item" data-tooth="15"><span class="tooth-num">15</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item" data-tooth="14"><span class="tooth-num">14</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item" data-tooth="13"><span class="tooth-num">13</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item" data-tooth="12"><span class="tooth-num">12</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item" data-tooth="11"><span class="tooth-num">11</span><div class="tooth-graphic"></div></div>
+                  <span style="border-left:1px dashed #334155; margin:0 4px;"></span>
+                  <div class="tooth-item" data-tooth="21"><span class="tooth-num">21</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item" data-tooth="22"><span class="tooth-num">22</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item" data-tooth="23"><span class="tooth-num">23</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item status-karies" data-tooth="24"><span class="tooth-num">24</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item" data-tooth="25"><span class="tooth-num">25</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item" data-tooth="26"><span class="tooth-num">26</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item status-cabut" data-tooth="27"><span class="tooth-num">27</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item" data-tooth="28"><span class="tooth-num">28</span><div class="tooth-graphic"></div></div>
+                </div>
+
+                <!-- Lower Arch -->
+                <div style="font-size:0.7rem; color:var(--text-muted); text-align:center; margin-top:8px; margin-bottom:2px;">RAHANG BAWAH (MANDIBULA)</div>
+                <div class="dental-arch">
+                  <div class="tooth-item" data-tooth="48"><span class="tooth-num">48</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item" data-tooth="47"><span class="tooth-num">47</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item status-cabut" data-tooth="46"><span class="tooth-num">46</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item" data-tooth="45"><span class="tooth-num">45</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item" data-tooth="44"><span class="tooth-num">44</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item" data-tooth="43"><span class="tooth-num">43</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item" data-tooth="42"><span class="tooth-num">42</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item" data-tooth="41"><span class="tooth-num">41</span><div class="tooth-graphic"></div></div>
+                  <span style="border-left:1px dashed #334155; margin:0 4px;"></span>
+                  <div class="tooth-item" data-tooth="31"><span class="tooth-num">31</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item" data-tooth="32"><span class="tooth-num">32</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item" data-tooth="33"><span class="tooth-num">33</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item" data-tooth="34"><span class="tooth-num">34</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item status-tambalan" data-tooth="35"><span class="tooth-num">35</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item status-karies" data-tooth="36"><span class="tooth-num">36</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item" data-tooth="37"><span class="tooth-num">37</span><div class="tooth-graphic"></div></div>
+                  <div class="tooth-item" data-tooth="38"><span class="tooth-num">38</span><div class="tooth-graphic"></div></div>
+                </div>
+              </div>
+
+              <!-- Output Log -->
+              <div id="dentalLog" style="font-size:0.8rem; background:rgba(0,0,0,0.3); padding:0.6rem 0.8rem; border-radius:6px; border-left:3px solid var(--cyan-primary);">
+                💡 <em>Klik salah satu gigi pada diagram untuk memperbarui status medis pasien.</em>
+              </div>
+
+              <!-- Pain Scale Slider -->
+              <div class="pain-slider-box">
+                <div class="slider-labels">
+                  <span>Skala Nyeri Pasien (Wong-Baker / FLACC)</span>
+                  <span id="painEmoji" style="font-size:1.2rem;">😐</span>
+                </div>
+                <input type="range" min="0" max="10" value="3" class="pain-slider" id="painSlider">
+                <div class="pain-result">
+                  <div>
+                    <strong id="painLevel" class="text-cyan">3 - Nyeri Ringan</strong>
+                    <div id="painAction" style="font-size:0.75rem; color:var(--text-muted);">Pertimbangkan Paracetamol oral bila diperlukan</div>
+                  </div>
+                  <span class="badge-pill" id="painVal">3</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Antrean & Kios Mandiri -->
+      <div class="tab-content" id="tab-antrean">
+        <div class="tab-panel-grid">
+          <div class="tab-details">
+            <span class="badge-pill module-badge-tag">Otomatisasi Front-Office</span>
+            <h3>Display Antrean Cerdas & Pemanggilan Suara Suara TTS</h3>
+            <p>
+              Kurangi penumpukan di ruang tunggu faskes dengan sistem antrean multi-loket. Terintegrasi penuh dengan 7 Task ID BPJS Antrol Mobile JKN dan TV Display ruang tunggu resolusi tinggi.
+            </p>
+
+            <div class="feature-check-grid">
+              <div class="check-item">
+                <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                <div class="check-text">
+                  <h5>Text-to-Speech (TTS) Suara Jernih</h5>
+                  <p>Pemanggilan otomatis suara manusia dalam Bahasa Indonesia natural.</p>
+                </div>
+              </div>
+              <div class="check-item">
+                <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                <div class="check-text">
+                  <h5>Bridging BPJS Antrol MJKN</h5>
+                  <p>Kirim timestamp Task 1 hingga 7 secara instan tanpa selisih.</p>
+                </div>
+              </div>
+              <div class="check-item">
+                <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                <div class="check-text">
+                  <h5>Kios Mandiri Sentuh & QR</h5>
+                  <p>Pasien mandiri check-in dengan scan barcode rujukan atau NIK KTP.</p>
+                </div>
+              </div>
+              <div class="check-item">
+                <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                <div class="check-text">
+                  <h5>Multi-Display TV Poli & Farmasi</h5>
+                  <p>Mendukung layout split-screen video edukasi, running text, dan nomor antre.</p>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 1rem;">
+              <a href="#" class="btn btn-secondary btn-sm lightbox-trigger" data-full="assets/moizcare_command_center.jpg" data-caption="Hospital Command Center & Kios Antrean Mandiri Pasien MoizCare">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <span>Lihat Layout Command Center</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Interactive Demo Widget: TV Display & Audio Caller -->
+          <div class="tab-interactive-container">
+            <div class="queue-tv-display">
+              <div class="queue-tv-header">
+                <div>
+                  <span style="font-weight:700; color:#FFFFFF; font-size:0.9rem;">TV DISPLAY POLIKLINIK RAWAT JALAN</span>
+                  <div style="font-size:0.75rem; color:var(--cyan-primary);">RS MITRA MOIZCARE • SERVER AKTIF</div>
+                </div>
+                <div style="font-family:var(--font-mono); font-size:0.85rem; color:var(--text-muted);" id="queueClock">10:45:12 WIB</div>
+              </div>
+
+              <!-- Main Current Call Box -->
+              <div class="queue-current-call">
+                <span class="badge-pill badge-magenta">SEDANG DIPANGGIL</span>
+                <div class="queue-number-large" id="currentQueueNum">A-024</div>
+                <div class="queue-dest" id="currentQueuePoli">Poli Penyakit Dalam - Dokter Spesialis</div>
+                <div style="font-size:0.8rem; color:var(--text-muted); margin-top:4px;">Loket 02 • Dokter: dr. Hendra Gunawan, Sp.PD</div>
+
+                <div style="display:flex; gap:0.5rem; margin-top:1.25rem;">
+                  <button type="button" class="btn btn-primary queue-audio-btn" id="callQueueBtn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                    <span>Bunyikan Suara Panggilan</span>
+                  </button>
+                  <button type="button" class="btn btn-secondary" id="nextQueueBtn" title="Antrean Berikutnya">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 4 15 12 5 20 5 4"></polygon><line x1="19" y1="5" x2="19" y2="19"></line></svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Mini Other Queues -->
+              <div class="queue-grid-mini">
+                <div class="queue-mini-card">
+                  <div class="queue-mini-poli">Poli Anak</div>
+                  <div class="queue-mini-num">B-015</div>
+                </div>
+                <div class="queue-mini-card">
+                  <div class="queue-mini-poli">Poli Bedah</div>
+                  <div class="queue-mini-num">C-008</div>
+                </div>
+                <div class="queue-mini-card">
+                  <div class="queue-mini-poli">Farmasi</div>
+                  <div class="queue-mini-num">F-042</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Integrasi Satu Sehat & BPJS -->
+      <div class="tab-content" id="tab-satusehat">
+        <div class="tab-panel-grid">
+          <div class="tab-details">
+            <span class="badge-pill module-badge-tag">Kepatuhan Regulasi Nasional</span>
+            <h3>Bridging Tanpa Hambatan: Satu Sehat FHIR R4 & BPJS</h3>
+            <p>
+              MoizCare mengeliminasi input ganda (*double entry*). Seluruh resep, diagnosa, dan tindakan medis otomatis ditransformasikan ke standar terminologi internasional (KFA, LOINC, ICD-10, ICD-9 CM).
+            </p>
+
+            <div class="bridging-status-list">
+              <div class="bridging-row">
+                <div style="display:flex; align-items:center; gap:0.6rem;">
+                  <span class="pulse-indicator"></span>
+                  <strong>Kemenkes Satu Sehat (HL7 FHIR R4)</strong>
+                </div>
+                <span class="badge-pill badge-success">PRODUCTION AKTIF</span>
+              </div>
+              <div class="bridging-row">
+                <div style="display:flex; align-items:center; gap:0.6rem;">
+                  <span class="pulse-indicator"></span>
+                  <strong>BPJS Kesehatan VClaim 2.0 (SEP Online)</strong>
+                </div>
+                <span class="badge-pill badge-success">BRIDGING SIAP</span>
+              </div>
+              <div class="bridging-row">
+                <div style="display:flex; align-items:center; gap:0.6rem;">
+                  <span class="pulse-indicator"></span>
+                  <strong>BPJS Antrean Online (Antrol MJKN)</strong>
+                </div>
+                <span class="badge-pill badge-success">7 TASK ID READY</span>
+              </div>
+              <div class="bridging-row">
+                <div style="display:flex; align-items:center; gap:0.6rem;">
+                  <span class="pulse-indicator"></span>
+                  <strong>BPJS Aplicares & iCare Pasien</strong>
+                </div>
+                <span class="badge-pill badge-success">LIVE SYNC</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Demo Widget: HL7 FHIR Payload Inspector -->
+          <div class="tab-interactive-container">
+            <div class="interactive-header">
+              <span class="interactive-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                Inspektor Payload HL7 FHIR R4 MoizCare
+              </span>
+              <span class="badge-pill">HL7 FHIR R4</span>
+            </div>
+
+            <!-- Resource Selector Buttons -->
+            <div style="display:flex; gap:0.5rem; margin-bottom:0.75rem;">
+              <button type="button" class="btn btn-secondary btn-sm fhir-selector-btn active" data-fhir="encounter">Encounter</button>
+              <button type="button" class="btn btn-secondary btn-sm fhir-selector-btn" data-fhir="condition">Condition (ICD-10)</button>
+              <button type="button" class="btn btn-secondary btn-sm fhir-selector-btn" data-fhir="medication">Medication (KFA)</button>
+            </div>
+
+            <!-- Preformatted JSON Viewer -->
+            <div class="fhir-code-box">
+              <pre id="fhirJsonContent">{
+  "resourceType": "Encounter",
+  "id": "moizcare-enc-20260924-001",
+  "status": "in-progress",
+  "class": {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "code": "AMB",
+    "display": "ambulatory / rawat jalan"
+  },
+  "subject": {
+    "reference": "Patient/10000004",
+    "display": "Ahmad Fauzi (NIK: 1471082309850001)"
+  },
+  "serviceProvider": {
+    "reference": "Organization/10082736",
+    "display": "CV. Panda Global Teknologi - RS Mitra"
+  },
+  "period": {
+    "start": "2026-09-24T08:15:00+07:00"
+  },
+  "moizcareSyncStatus": "SYNCED_HL7_FHIR_R4_SUCCESS"
+}</pre>
+            </div>
+
+            <div style="font-size:0.75rem; color:var(--text-muted); margin-top:0.75rem; display:flex; justify-content:space-between;">
+              <span>HTTP 200 OK • Kemenkes DTO Gateway Response</span>
+              <span class="text-cyan">Latency: 78ms</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 4: Billing & Keuangan Eksekutif -->
+      <div class="tab-content" id="tab-keuangan">
+        <div class="tab-panel-grid">
+          <div class="tab-details">
+            <span class="badge-pill module-badge-tag">Eksekutif & Keuangan</span>
+            <h3>13 Sub-Modul Akuntansi & Kasir Transparan</h3>
+            <p>
+              Hindari kebocoran pendapatan rumah sakit dengan pelacakan *real-time billing*. Mengakomodasi tarif BPJS INA-CBG, klaim asuransi swasta, dan perhitungan pembagian jasa medis dokter spesialis secara akurat.
+            </p>
+
+            <div class="feature-check-grid">
+              <div class="check-item">
+                <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                <div class="check-text">
+                  <h5>Kasir Terpadu Rawat Inap & Jalan</h5>
+                  <p>Cetak rincian kuitansi, faktur pajak, dan integrasi QRIS/EDC.</p>
+                </div>
+              </div>
+              <div class="check-item">
+                <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                <div class="check-text">
+                  <h5>Manajemen Piutang BPJS</h5>
+                  <p>Monitoring umur piutang klaim dan rekonsiliasi pembayaran faskes.</p>
+                </div>
+              </div>
+              <div class="check-item">
+                <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                <div class="check-text">
+                  <h5>Kalkulasi Jasa Medis DPJP</h5>
+                  <p>Pembagian proporsi dokter, paramedis, dan faskes otomatis.</p>
+                </div>
+              </div>
+              <div class="check-item">
+                <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                <div class="check-text">
+                  <h5>Laporan Keuangan & Laba Rugi</h5>
+                  <p>Neraca saldo, jurnal otomatis, dan buku besar faskes real-time.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Financial Snapshot Simulation -->
+          <div class="tab-interactive-container">
+            <div class="interactive-header">
+              <span class="interactive-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                Dashboard Eksekutif C-Level
+              </span>
+              <span class="badge-pill badge-success">Live Metrics</span>
+            </div>
+
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:0.85rem; margin-bottom:1rem;">
+              <div style="background:#060A1A; border:1px solid #1E2D55; border-radius:8px; padding:1rem;">
+                <div style="font-size:0.75rem; color:var(--text-muted);">PENDAPATAN BULANAN (BILLING)</div>
+                <div style="font-size:1.45rem; font-weight:800; color:var(--cyan-primary); font-family:var(--font-mono);">Rp 1,84 M</div>
+                <div style="font-size:0.75rem; color:var(--emerald-success); margin-top:2px;">↑ 12.4% vs bulan lalu</div>
+              </div>
+              <div style="background:#060A1A; border:1px solid #1E2D55; border-radius:8px; padding:1rem;">
+                <div style="font-size:0.75rem; color:var(--text-muted);">BED OCCUPANCY RATE (BOR)</div>
+                <div style="font-size:1.45rem; font-weight:800; color:#38BDF8; font-family:var(--font-mono);">76.8%</div>
+                <div style="font-size:0.75rem; color:var(--cyan-primary); margin-top:2px;">Ideal standar KARS</div>
+              </div>
+            </div>
+
+            <div style="background:#060A1A; border:1px solid #1E2D55; border-radius:8px; padding:1rem;">
+              <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem; font-size:0.8rem;">
+                <span>Klaim BPJS Terverifikasi (Bulan Berjalan)</span>
+                <strong class="text-cyan">94.2% Sukses</strong>
+              </div>
+              <div style="background:#1E293B; height:8px; border-radius:4px; overflow:hidden;">
+                <div style="background:linear-gradient(90deg, #00F0FF, #10B981); width:94.2%; height:100%;"></div>
+              </div>
+              <div style="font-size:0.72rem; color:var(--text-muted); margin-top:0.4rem;">
+                Total 1.420 Berkas SEP tanpa klaim pending / dispute.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 5: Operasional & Asisten AI -->
+      <div class="tab-content" id="tab-operasional">
+        <div class="tab-panel-grid">
+          <div class="tab-details">
+            <span class="badge-pill module-badge-tag">Sarana & Prasarana RS</span>
+            <h3>SIMAK Aset Medis, K3 APAR & MoizCare AI Assistant</h3>
+            <p>
+              Lebih dari sekadar rekam medis klinis, MoizCare menghadirkan manajemen siklus hidup sarana rumah sakit, kepatuhan keselamatan kerja (K3), dan asisten analitik berbasis kecerdasan buatan.
+            </p>
+
+            <div class="feature-check-grid">
+              <div class="check-item">
+                <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                <div class="check-text">
+                  <h5>SIMAK & Kalibrasi Alat Medis</h5>
+                  <p>Jadwal berkala kalibrasi USG, Ventilator, X-Ray & riwayat servis.</p>
+                </div>
+              </div>
+              <div class="check-item">
+                <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                <div class="check-text">
+                  <h5>Checklist Digital K3 & APAR</h5>
+                  <p>Inspeksi alat pemadam dan kepatuhan KARS berbasis QR Code.</p>
+                </div>
+              </div>
+              <div class="check-item">
+                <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                <div class="check-text">
+                  <h5>Logistik Medis & Non-Medis</h5>
+                  <p>Stok linen gizi, ATK, gas medis (O2/N2O), dan pengadaan faskes.</p>
+                </div>
+              </div>
+              <div class="check-item">
+                <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+                <div class="check-text">
+                  <h5>MoizCare AI Health Analytics</h5>
+                  <p>Prediksi lonjakan pasien poli dan asisten perangkum laporan eksekutif.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-interactive-container">
+            <div class="interactive-header">
+              <span class="interactive-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                MoizCare AI Assistant & Safety Sentinel
+              </span>
+              <span class="badge-pill badge-magenta">AI Intelligence</span>
+            </div>
+
+            <div style="background:#060A1A; border:1px solid #1E2D55; border-radius:8px; padding:1.25rem;">
+              <div style="display:flex; align-items:flex-start; gap:0.75rem; margin-bottom:1rem;">
+                <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg, var(--cyan-primary), var(--magenta-primary)); display:flex; align-items:center; justify-content:center; color:#050814; font-weight:800; font-size:0.85rem; flex-shrink:0;">
+                  AI
+                </div>
+                <div style="background:rgba(255,255,255,0.04); border-radius:8px; padding:0.75rem; font-size:0.85rem; color:var(--text-secondary); line-height:1.5;">
+                  "Berdasarkan tren 90 hari terakhir di Poli Penyakit Dalam, diprediksi terjadi peningkatan 28% kunjungan pasien hipertensi pekan depan. Disarankan menambahkan kuota obat <em>Amlodipine</em> di Gudang Farmasi Utama."
+                </div>
+              </div>
+
+              <div style="border-top:1px solid rgba(255,255,255,0.06); padding-top:0.75rem; display:flex; justify-content:space-between; align-items:center; font-size:0.78rem;">
+                <span style="color:var(--text-muted);">Status Inspeksi APAR Lantai 1-3:</span>
+                <span class="text-cyan">100% Terkalibrasi & Terinspeksi</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Compliance & Official Integration Badges
+       ========================================================================== -->
+  <section class="compliance-section" id="kepatuhan">
+    <div class="container">
+      <div class="section-header" style="margin-bottom:2.5rem;">
+        <div class="badge-pill">Standar Regulasi Nasional</div>
+        <h2 class="section-title">Kepatuhan Penuh Terhadap Regulasi Kesehatan</h2>
+        <p class="section-subtitle">
+          MoizCare dikembangkan dengan kepatuhan hukum 100% terhadap standar Kementerian Kesehatan RI, BPJS Kesehatan, dan Badan Siber dan Sandi Negara.
+        </p>
+      </div>
+
+      <div class="compliance-grid">
+        <!-- 1. Kemenkes -->
+        <div class="glass-card compliance-card">
+          <div class="compliance-logo-badge">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+              <path d="M2 17l10 5 10-5"></path>
+              <path d="M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <h4>Kemenkes RI Satu Sehat</h4>
+          <p>Kompatibilitas penuh standar pertukaran data medis HL7 FHIR R4 & Permenkes No. 24 Tahun 2022.</p>
+          <span class="compliance-tag">HL7 FHIR R4 Ready</span>
+        </div>
+
+        <!-- 2. BPJS Kesehatan -->
+        <div class="glass-card compliance-card">
+          <div class="compliance-logo-badge">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 14 14"></polyline>
+            </svg>
+          </div>
+          <h4>BPJS Kesehatan Bridging</h4>
+          <p>Terhubung langsung dengan VClaim 2.0, Antrean Online MJKN Task 1-7, Aplicares, dan iCare.</p>
+          <span class="compliance-tag">VClaim & Antrol V2</span>
+        </div>
+
+        <!-- 3. BSrE TTE -->
+        <div class="glass-card compliance-card">
+          <div class="compliance-logo-badge">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <h4>TTE Tersertifikasi BSrE</h4>
+          <p>Tanda tangan elektronik legal dan diakui secara yuridis untuk seluruh lembar resume medis pasien.</p>
+          <span class="compliance-tag">BSSN Certified</span>
+        </div>
+
+        <!-- 4. Standar Akreditasi KARS -->
+        <div class="glass-card compliance-card">
+          <div class="compliance-logo-badge">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          </div>
+          <h4>Standar Akreditasi RS</h4>
+          <p>Mendukung kelengkapan dokumen instrumen akreditasi KARS, LAM-KPRS, dan standar mutu RS Tipe C & D.</p>
+          <span class="compliance-tag">KARS Compliant</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Portofolio & Referensi Faskes (Klien Mitra)
+       ========================================================================== -->
+  <section class="section" id="portofolio">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill">Bukti Sosial & Kredibilitas</div>
+        <h2 class="section-title">Portofolio & Faskes Mitra Terpercaya</h2>
+        <p class="section-subtitle">
+          Berbagai Rumah Sakit Pemerintah, Rumah Sakit Swasta, dan Klinik Spesialis telah mempercayakan operasional pelayanannya kepada MoizCare.
+        </p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="portfolio-filter-row">
+        <button type="button" class="filter-btn active" data-filter="all">Semua Mitra (6)</button>
+        <button type="button" class="filter-btn" data-filter="swasta">Rumah Sakit Swasta</button>
+        <button type="button" class="filter-btn" data-filter="pemerintah">RSUD Pemerintah</button>
+        <button type="button" class="filter-btn" data-filter="klinik">Klinik Spesialis</button>
+      </div>
+
+      <!-- Portfolio Grid -->
+      <div class="portfolio-grid">
+        <!-- 1. RS Mata PBEC -->
+        <div class="glass-card client-card" data-category="swasta">
+          <div class="client-header">
+            <div class="client-logo-avatar">EC</div>
+            <span class="client-type-badge">RS Khusus Mata</span>
+          </div>
+          <div class="client-body">
+            <h4>RS Mata Pekanbaru Eye Center (PBEC)</h4>
+            <div class="client-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Pekanbaru, Riau</span>
+            </div>
+            <div class="client-scope">
+              <strong>Implementasi:</strong> RME Rawat Jalan Spesialis Mata Terintegrasi, Manajemen Antrean Cerdas, dan Bridging Satu Sehat Kemenkes.
+            </div>
+          </div>
+          <div class="client-footer">
+            <span class="client-status-pill">
+              <span class="pulse-indicator"></span>
+              <span>Operasional Aktif</span>
+            </span>
+            <span style="color:var(--text-muted);">Tipe C</span>
+          </div>
+        </div>
+
+        <!-- 2. RSUD Petala Bumi Prov. Riau -->
+        <div class="glass-card client-card" data-category="pemerintah">
+          <div class="client-header">
+            <div class="client-logo-avatar" style="border-color:var(--emerald-success); color:var(--emerald-success);">PB</div>
+            <span class="client-type-badge">RSUD Pemerintah</span>
+          </div>
+          <div class="client-body">
+            <h4>RSUD Petala Bumi Prov. Riau</h4>
+            <div class="client-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Provinsi Riau</span>
+            </div>
+            <div class="client-scope">
+              <strong>Implementasi:</strong> Modul E-Resep & Apotek Online Farmasi Terpadu, Bridging BPJS Kesehatan & Integrasi Satu Sehat Nasional.
+            </div>
+          </div>
+          <div class="client-footer">
+            <span class="client-status-pill">
+              <span class="pulse-indicator"></span>
+              <span>Operasional Aktif</span>
+            </span>
+            <span style="color:var(--text-muted);">RSUD Pemprov</span>
+          </div>
+        </div>
+
+        <!-- 3. RS FanyBella Medika -->
+        <div class="glass-card client-card" data-category="swasta">
+          <div class="client-header">
+            <div class="client-logo-avatar" style="border-color:var(--magenta-primary); color:var(--magenta-primary);">FB</div>
+            <span class="client-type-badge">RS Umum Swasta</span>
+          </div>
+          <div class="client-body">
+            <h4>RS FanyBella Medika</h4>
+            <div class="client-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Sumatera</span>
+            </div>
+            <div class="client-scope">
+              <strong>Implementasi:</strong> Paket SIM-RS Premium Terintegrasi Full Modul: RME Rawat Inap/Jalan, Kasir Billing, Farmasi & Penunjang Medis.
+            </div>
+          </div>
+          <div class="client-footer">
+            <span class="client-status-pill">
+              <span class="pulse-indicator"></span>
+              <span>Operasional Aktif</span>
+            </span>
+            <span style="color:var(--text-muted);">Tipe C</span>
+          </div>
+        </div>
+
+        <!-- 4. RS Bina Kasih -->
+        <div class="glass-card client-card" data-category="swasta">
+          <div class="client-header">
+            <div class="client-logo-avatar">BK</div>
+            <span class="client-type-badge">RS Umum Swasta</span>
+          </div>
+          <div class="client-body">
+            <h4>RS Bina Kasih</h4>
+            <div class="client-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Pekanbaru, Riau</span>
+            </div>
+            <div class="client-scope">
+              <strong>Implementasi:</strong> Full Modul Medis & Administratif, Billing Terintegrasi, Rekonsiliasi Klaim BPJS dan SIMAK Manajemen Aset.
+            </div>
+          </div>
+          <div class="client-footer">
+            <span class="client-status-pill">
+              <span class="pulse-indicator"></span>
+              <span>Operasional Aktif</span>
+            </span>
+            <span style="color:var(--text-muted);">Tipe C</span>
+          </div>
+        </div>
+
+        <!-- 5. RS Ibunda -->
+        <div class="glass-card client-card" data-category="swasta">
+          <div class="client-header">
+            <div class="client-logo-avatar" style="border-color:var(--purple-accent); color:var(--purple-accent);">IB</div>
+            <span class="client-type-badge">RS Ibu & Anak</span>
+          </div>
+          <div class="client-body">
+            <h4>RS Ibunda</h4>
+            <div class="client-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Riau</span>
+            </div>
+            <div class="client-scope">
+              <strong>Implementasi:</strong> Sistem Informasi Pelayanan Pasien Ibu & Anak, RME Kebidanan, Modul Kasir Terpadu, dan BPJS VClaim.
+            </div>
+          </div>
+          <div class="client-footer">
+            <span class="client-status-pill">
+              <span class="pulse-indicator"></span>
+              <span>Operasional Aktif</span>
+            </span>
+            <span style="color:var(--text-muted);">RSIA Tipe C/D</span>
+          </div>
+        </div>
+
+        <!-- 6. Klinik Mata Duri Eye Center -->
+        <div class="glass-card client-card" data-category="klinik">
+          <div class="client-header">
+            <div class="client-logo-avatar" style="border-color:#38BDF8; color:#38BDF8;">DE</div>
+            <span class="client-type-badge">Klinik Utama Mata</span>
+          </div>
+          <div class="client-body">
+            <h4>Klinik Mata Duri Eye Center</h4>
+            <div class="client-location">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Duri, Bengkalis</span>
+            </div>
+            <div class="client-scope">
+              <strong>Implementasi:</strong> SIM-Klinik Spesialis Mata, Rekam Medis Elektronik Refraksi & Tindakan, Farmasi, serta Bridging Satu Sehat Kemenkes.
+            </div>
+          </div>
+          <div class="client-footer">
+            <span class="client-status-pill">
+              <span class="pulse-indicator"></span>
+              <span>Operasional Aktif</span>
+            </span>
+            <span style="color:var(--text-muted);">Klinik Spesialis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Skema Investasi Transparan (Pricing Section)
+       ========================================================================== -->
+  <section class="section" id="investasi">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill">Investasi Efisien & Transparan</div>
+        <h2 class="section-title">Skema Investasi SIM-RS <span class="text-gradient-cyan">Tanpa Biaya Tersembunyi</span></h2>
+        <p class="section-subtitle">
+          Kepastian anggaran untuk Rumah Sakit. Lisensi berlaku seumur hidup (Hak Pakai) dengan jumlah pengguna tak terbatas (*unlimited user*).
+        </p>
+      </div>
+
+      <div class="pricing-wrapper">
+        <div class="glass-card pricing-featured-card">
+          <div class="pricing-top-pill">Paket Unggulan Rumah Sakit Tipe C</div>
+
+          <div class="pricing-header-row">
+            <div class="pricing-titles">
+              <h3>Paket SIM-RS Premium Tipe C</h3>
+              <p>Solusi lengkap faskes rumah sakit dengan 40+ modul tanpa biaya tambahan per modul.</p>
+            </div>
+
+            <div class="price-box-main">
+              <div class="price-license">Rp 250.000.000,-</div>
+              <div class="price-sub-caption">Biaya Lisensi One-Time • Hak Pakai Seumur Hidup • Unlimited User</div>
+            </div>
+          </div>
+
+          <!-- Monthly Maintenance Bar -->
+          <div class="maintenance-highlight-bar">
+            <div class="maintenance-info">
+              <h4>Biaya Pemeliharaan & Dukungan (Maintenance):</h4>
+              <p>Mencakup pembaruan regulasi Kemenkes & BPJS terbaru, server backup berkala, fix bug, dan technical support 24/7.</p>
+            </div>
+            <div class="maintenance-fee">
+              Rp 7.000.000,- <span style="font-size:0.85rem; font-weight:normal; color:var(--text-muted);">/ bulan</span>
+            </div>
+          </div>
+
+          <!-- 4 Payment Milestones -->
+          <div class="payment-milestones-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+            <span>4 Tahapan Termin Pembayaran Transparan (Sesuai Progres)</span>
+          </div>
+
+          <div class="milestones-grid">
+            <div class="milestone-item">
+              <span class="milestone-num">Termin 1</span>
+              <span class="milestone-percentage">30%</span>
+              <span class="milestone-label">Uang Muka / Kick-Off Penandatanganan Kontrak</span>
+              <span class="milestone-nominal">Rp 75.000.000,-</span>
+            </div>
+
+            <div class="milestone-item">
+              <span class="milestone-num">Termin 2</span>
+              <span class="milestone-percentage">20%</span>
+              <span class="milestone-label">Instalasi Server Proxmox VE & VM In-House</span>
+              <span class="milestone-nominal">Rp 50.000.000,-</span>
+            </div>
+
+            <div class="milestone-item">
+              <span class="milestone-num">Termin 3</span>
+              <span class="milestone-percentage">30%</span>
+              <span class="milestone-label">Migrasi Master Data & Bridging Satu Sehat Production</span>
+              <span class="milestone-nominal">Rp 75.000.000,-</span>
+            </div>
+
+            <div class="milestone-item">
+              <span class="milestone-num">Termin 4</span>
+              <span class="milestone-percentage">20%</span>
+              <span class="milestone-label">Pelatihan Seluruh Unit & Go-Live Resmi</span>
+              <span class="milestone-nominal">Rp 50.000.000,-</span>
+            </div>
+          </div>
+
+          <!-- Inclusions List -->
+          <div class="package-inclusions">
+            <div class="inclusions-title">Fasilitas yang Termasuk dalam Paket:</div>
+            <ul class="inclusions-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Hak Pakai Lisensi Penuh (Unlimited Komputer & User)</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Seluruh 40+ Modul Medis, Kasir, Farmasi, & Keuangan</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Bridging Satu Sehat Kemenkes (HL7 FHIR R4)</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Bridging BPJS Kesehatan VClaim 2.0 & Antrol MJKN</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Pelatihan Onsite Langsung untuk Seluruh Staf Rumah Sakit</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Pendampingan Go-Live Penuh hingga Sistem Berjalan Stabil</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pricing-actions">
+            <a href="#kontak" class="btn btn-primary btn-lg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <span>Minta Penawaran Resmi & Proposal</span>
+            </a>
+            <a href="https://wa.me/6285365811832?text=Halo%20Pak%20Ahmad%20Tohar%2C%20saya%20tertarik%20mempelajari%20Paket%20SIMRS%20Premium%20Tipe%20C%20MoizCare." target="_blank" class="btn btn-whatsapp btn-lg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.288.043.088.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
+              </svg>
+              <span>Konsultasi WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Interactive ROI / Cost-Benefit Calculator -->
+        <div class="roi-calculator-box">
+          <div style="display:flex; align-items:center; gap:0.6rem;">
+            <span class="badge-pill">Kalkulator Penghematan RS</span>
+            <h4 style="font-size:1.3rem; font-weight:700; color:#FFFFFF;">Simulasi Efisiensi & Balik Modal (ROI)</h4>
+          </div>
+          <p style="font-size:0.9rem; color:var(--text-muted); margin-top:0.4rem;">
+            Hitung estimasi penghematan biaya kertas rekam medis manual, efisiensi waktu verifikasi klaim BPJS, dan masa balik modal investasi SIMRS di faskes Anda.
+          </p>
+
+          <div class="calculator-grid">
+            <div class="calc-inputs">
+              <div class="calc-group">
+                <label>Kapasitas Tempat Tidur Rumah Sakit (Bed):</label>
+                <div class="calc-slider-wrapper">
+                  <input type="range" min="30" max="300" value="100" step="10" class="pain-slider" id="calcBeds">
+                  <span class="calc-val-badge" id="calcBedsVal">100 Bed</span>
+                </div>
+              </div>
+
+              <div class="calc-group">
+                <label>Rata-rata Pasien Rawat Jalan per Hari:</label>
+                <div class="calc-slider-wrapper">
+                  <input type="range" min="40" max="600" value="180" step="10" class="pain-slider" id="calcPatients">
+                  <span class="calc-val-badge" id="calcPatientsVal">180 Pasien/hari</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="calc-output-card">
+              <div class="roi-metric-item">
+                <span class="roi-label">Penghematan Kertas & Map RM Fisik:</span>
+                <span class="roi-number text-gradient-cyan" id="savingsPaper">Rp 198 Jt / thn</span>
+              </div>
+              <div class="roi-metric-item">
+                <span class="roi-label">Waktu Kerja Staf Terhemat:</span>
+                <span class="roi-number" id="hoursSaved">2.160 Jam / thn</span>
+              </div>
+              <div class="roi-metric-item">
+                <span class="roi-label">Estimasi Masa Balik Modal Lisensi:</span>
+                <span class="roi-number text-cyan" id="paybackTime">5.2 Bulan</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Roadmap Implementasi (Timeline 2+1 Bulan)
+       ========================================================================== -->
+  <section class="section" id="roadmap">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill">Alur Pengerjaan Terstruktur</div>
+        <h2 class="section-title">Roadmap Implementasi Cepat: <span class="text-gradient-cyan">2 + 1 Bulan</span></h2>
+        <p class="section-subtitle">
+          Metodologi teruji memastikan transisi mulus dari sistem lama ke MoizCare tanpa mengganggu jalannya pelayanan harian pasien rumah sakit.
+        </p>
+      </div>
+
+      <div class="roadmap-timeline">
+        <!-- Step 1 -->
+        <div class="timeline-step">
+          <div class="step-node">01</div>
+          <div class="glass-card step-card">
+            <div class="step-header">
+              <h4>Setup Infrastruktur & Bridging Satu Sehat</h4>
+              <span class="step-timing">Bulan 1 • Minggu 1 - 2</span>
+            </div>
+            <p>
+              Instalasi lingkungan server lokal dengan Proxmox Virtual Environment (VE), konfigurasi database PostgreSQL berkecepatan tinggi, integrasi SSL HTTPS, dan pengujian API Satu Sehat Kemenkes lingkungan Production.
+            </p>
+            <div class="step-deliverables">
+              <span class="deliv-tag">✓ Server Proxmox VE Aktif</span>
+              <span class="deliv-tag">✓ Secret API Satu Sehat Valid</span>
+              <span class="deliv-tag">✓ Migrasi Master Data Awal</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="timeline-step">
+          <div class="step-node">02</div>
+          <div class="glass-card step-card">
+            <div class="step-header">
+              <h4>Pelatihan Front Office, Kasir & RME Poli</h4>
+              <span class="step-timing">Bulan 1 • Minggu 3 - 4</span>
+            </div>
+            <p>
+              Pelatihan interaktif intensif untuk staf pendaftaran pasien, kasir rawat jalan, dan simulasi pengisian rekam medis elektronik (RME) oleh dokter spesialis dan perawat poliklinik.
+            </p>
+            <div class="step-deliverables">
+              <span class="deliv-tag">✓ Modul Pendaftaran & Antrean Teruji</span>
+              <span class="deliv-tag">✓ Template RME Siap Pakai</span>
+              <span class="deliv-tag">✓ Setting Tarif Billing Kasir</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="timeline-step">
+          <div class="step-node">03</div>
+          <div class="glass-card step-card">
+            <div class="step-header">
+              <h4>Pelatihan Unit Penunjang & Rawat Inap</h4>
+              <span class="step-timing">Bulan 2 • Minggu 1 - 2</span>
+            </div>
+            <p>
+              Implementasi modul farmasi (stok FIFO/FEFO & E-Resep), Laboratorium (LIS), Radiologi (RIS), instalasi rawat inap terpadu, kamar operasi (OK), dan gizi rumah sakit.
+            </p>
+            <div class="step-deliverables">
+              <span class="deliv-tag">✓ Modul E-Resep Farmasi</span>
+              <span class="deliv-tag">✓ Bridging Hasil Lab & Radiologi</span>
+              <span class="deliv-tag">✓ CPPT Rawat Inap Berfungsi</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="timeline-step">
+          <div class="step-node">04</div>
+          <div class="glass-card step-card">
+            <div class="step-header">
+              <h4>Dry Run & Simulasi Pelayanan Riil</h4>
+              <span class="step-timing">Bulan 2 • Minggu 3</span>
+            </div>
+            <p>
+              Uji coba simulasi end-to-end tanpa melibatkan data publik: alur pasien masuk dari antrean loket, pemeriksaan dokter di poli, penebusan resep di apotek, hingga cetak kuitansi kasir.
+            </p>
+            <div class="step-deliverables">
+              <span class="deliv-tag">✓ Validasi Zero Bug Alur Pelayanan</span>
+              <span class="deliv-tag">✓ Uji Beban Concurrency Server</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5 (GO LIVE) -->
+        <div class="timeline-step">
+          <div class="step-node">05</div>
+          <div class="glass-card step-card" style="border-color:rgba(255, 46, 116, 0.4); box-shadow:0 0 25px rgba(255, 46, 116, 0.2);">
+            <div class="step-header">
+              <h4 style="color:#FF5A92;">🎉 GO-LIVE PELUNCURAN SISTEM UTAMA</h4>
+              <span class="step-timing" style="color:var(--magenta-primary); background:rgba(255,46,116,0.12);">Bulan 2 • Minggu 4</span>
+            </div>
+            <p>
+              Peluncuran resmi sistem MoizCare di seluruh unit rumah sakit. Tim teknis CV. Panda Global Teknologi standby onsite penuh untuk mendampingi seluruh user selama jam pelayanan aktif.
+            </p>
+            <div class="step-deliverables">
+              <span class="deliv-tag" style="color:var(--magenta-primary);">★ 100% Paperless RME Berjalan</span>
+              <span class="deliv-tag" style="color:var(--magenta-primary);">★ Onsite Standby Engineer</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="timeline-step">
+          <div class="step-node">06</div>
+          <div class="glass-card step-card">
+            <div class="step-header">
+              <h4>Bridging BPJS & Pendampingan Pasca Go-Live</h4>
+              <span class="step-timing">Bulan 3 (Pendampingan)</span>
+            </div>
+            <p>
+              Finalisasi bridging BPJS Kesehatan (VClaim, Antrol, Aplicares) langsung pada data riil peserta BPJS, fine-tuning performa database, dan serah terima dokumen SOP resmi faskes.
+            </p>
+            <div class="step-deliverables">
+              <span class="deliv-tag">✓ Klaim BPJS Berhasil Terkirim</span>
+              <span class="deliv-tag">✓ Berita Acara Serah Terima (BAST)</span>
+              <span class="deliv-tag">✓ Garansi Support 24/7 Masuk Periode Maintenance</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Form Lead Generation & Kontak (Call to Action)
+       ========================================================================== -->
+  <section class="section contact-section" id="kontak">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-pill">Hubungi Tim Ahli Kami</div>
+        <h2 class="section-title">Siap Mentransformasi <span class="text-gradient-cyan">Rumah Sakit Anda</span>?</h2>
+        <p class="section-subtitle">
+          Jadwalkan sesi demonstrasi langsung (Live Demo) secara daring maupun tatap muka, atau konsultasikan kebutuhan regulasi faskes Anda bersama konsultan kami.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Interactive Form -->
+        <div class="glass-card lead-form-card">
+          <h3 style="font-size:1.45rem; font-weight:700; color:#FFFFFF;">Formulir Permintaan Live Demo</h3>
+          <p style="font-size:0.88rem; color:var(--text-muted); margin-top:0.25rem;">
+            Isi formulir berikut, sistem kami akan langsung menyusun pesan otomatis ke WhatsApp Konsultan Utama untuk konfirmasi jadwal secepatnya.
+          </p>
+
+          <form class="lead-form" id="leadGenForm">
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="leadName">Nama Lengkap & Gelar *</label>
+                <input type="text" id="leadName" class="form-control" placeholder="Contoh: dr. Budi Santoso, Sp.A" required>
+              </div>
+              <div class="form-group">
+                <label for="leadRole">Jabatan di Faskes</label>
+                <input type="text" id="leadRole" class="form-control" placeholder="Contoh: Direktur RS / Kepala SIMRS">
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="leadHospital">Nama Rumah Sakit / Faskes *</label>
+                <input type="text" id="leadHospital" class="form-control" placeholder="Contoh: RS Mitra Husada" required>
+              </div>
+              <div class="form-group">
+                <label for="leadType">Tipe / Kategori Faskes *</label>
+                <select id="leadType" class="form-control" required>
+                  <option value="Rumah Sakit Tipe C">Rumah Sakit Tipe C</option>
+                  <option value="Rumah Sakit Tipe D">Rumah Sakit Tipe D</option>
+                  <option value="Rumah Sakit Tipe B">Rumah Sakit Tipe B</option>
+                  <option value="Rumah Sakit Khusus / RSIA">Rumah Sakit Khusus / RSIA</option>
+                  <option value="Klinik Utama / Pratama">Klinik Utama / Pratama</option>
+                  <option value="Faskes Lainnya">Lainnya</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="leadPhone">Nomor WhatsApp / Telepon *</label>
+                <input type="tel" id="leadPhone" class="form-control" placeholder="0812-xxxx-xxxx" required>
+              </div>
+              <div class="form-group">
+                <label for="leadDemoDate">Preferensi Jadwal Demo</label>
+                <input type="date" id="leadDemoDate" class="form-control">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="leadNotes">Catatan Kebutuhan Khusus / Modul yang Diprioritaskan</label>
+              <textarea id="leadNotes" class="form-control" placeholder="Contoh: Kami sedang persiapan akreditasi KARS dan membutuhkan bridging BPJS VClaim + antrean Mobile JKN."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" id="submitLeadBtn" style="margin-top:0.5rem;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              <span>Kirim & Jadwalkan Demo Via WhatsApp</span>
+            </button>
+
+            <div class="form-disclaimer">
+              🔒 Data Anda aman dan hanya digunakan oleh CV. Panda Global Teknologi untuk penjadwalan demo resmi.
+            </div>
+          </form>
+        </div>
+
+        <!-- Direct Contact Card -->
+        <div class="glass-card contact-direct-card">
+          <div>
+            <div class="consultant-profile">
+              <div class="consultant-avatar">AT</div>
+              <div class="consultant-details">
+                <h4>Ahmad Tohar, S.Kom</h4>
+                <p>Konsultan Utama SIMRS & IT Kesehatan</p>
+                <span>CV. Panda Global Teknologi</span>
+              </div>
+            </div>
+
+            <div class="contact-channels">
+              <a href="https://wa.me/6285365811832?text=Halo%20Pak%20Ahmad%20Tohar%2C%20saya%20ingin%20konsultasi%20mengenai%20MoizCare%20SIMRS." target="_blank" class="contact-channel-item">
+                <div class="channel-icon wa">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.288.043.088.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
+                  </svg>
+                </div>
+                <div class="channel-content">
+                  <span class="channel-label">WhatsApp Direct</span>
+                  <span class="channel-value">0853-6581-1832</span>
+                </div>
+              </a>
+
+              <a href="mailto:moizclient30@gmail.com?subject=Inquiry%20MoizCare%20SIMRS" class="contact-channel-item">
+                <div class="channel-icon mail">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </div>
+                <div class="channel-content">
+                  <span class="channel-label">Email Resmi</span>
+                  <span class="channel-value">moizclient30@gmail.com</span>
+                </div>
+              </a>
+
+              <div class="contact-channel-item" style="cursor:default;">
+                <div class="channel-icon location">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                </div>
+                <div class="channel-content">
+                  <span class="channel-label">Entitas Pengembang</span>
+                  <span class="channel-value">CV. Panda Global Teknologi</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="company-legal-badge">
+            <strong>CV. Panda Global Teknologi</strong><br>
+            Penyedia Solusi Teknologi Informasi Kesehatan & SIMRS Terintegrasi di Indonesia. Siap melayani implementasi di seluruh wilayah Republik Indonesia.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       Footer Section
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Info -->
+        <div class="footer-col">
+          <a href="#beranda" class="brand-logo" style="margin-bottom:0.5rem;">
+            <div class="logo-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <span class="brand-title">Moiz<span>Care</span></span>
+              <span class="brand-sub">by CV. Panda Global Teknologi</span>
+            </div>
+          </a>
+          <p class="footer-brand-desc">
+            "Smart Care - Better Health - Brighter Future." Sistem Informasi Manajemen Rumah Sakit (SIMRS) mutakhir untuk optimalisasi mutu pelayanan medis dan tata kelola faskes di Indonesia.
+          </p>
+          <div style="font-size:0.8rem; color:var(--cyan-primary); font-family:var(--font-mono);">
+            Domain: www.moizcare.com
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h5>Navigasi Cepat</h5>
+          <ul class="footer-links">
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#keunggulan">Keunggulan 4 Pilar</a></li>
+            <li><a href="#modul">Eksplorasi Modul RME</a></li>
+            <li><a href="#kepatuhan">Kepatuhan Satu Sehat & BPJS</a></li>
+            <li><a href="#portofolio">Portofolio Mitra RS</a></li>
+          </ul>
+        </div>
+
+        <!-- Modul SIMRS -->
+        <div class="footer-col">
+          <h5>Modul Utama</h5>
+          <ul class="footer-links">
+            <li><a href="#modul">RME & Odontogram Poli Gigi</a></li>
+            <li><a href="#modul">Antrean Suara TTS & Mobile JKN</a></li>
+            <li><a href="#modul">Bridging BPJS VClaim & Aplicares</a></li>
+            <li><a href="#modul">Kasir Billing & Jasa Medis DPJP</a></li>
+            <li><a href="#modul">SIMAK Aset & Keselamatan K3 RS</a></li>
+          </ul>
+        </div>
+
+        <!-- Kontak Layanan -->
+        <div class="footer-col">
+          <h5>Layanan Konsultasi</h5>
+          <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.6;">
+            Hubungi konsultan kami untuk presentasi teknis dan penjadwalan demo onsite:
+          </p>
+          <div style="margin-top:0.5rem; display:flex; flex-direction:column; gap:0.4rem;">
+            <a href="tel:085365811832" style="color:var(--text-secondary); text-decoration:none; font-size:0.9rem;">
+              📞 0853-6581-1832
+            </a>
+            <a href="mailto:moizclient30@gmail.com" style="color:var(--text-secondary); text-decoration:none; font-size:0.9rem;">
+              ✉️ moizclient30@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          Hak Cipta © 2026 <strong>CV. Panda Global Teknologi</strong>. Seluruh Hak Dilindungi Undang-Undang.
+        </div>
+        <div style="display:flex; gap:1.5rem;">
+          <a href="#beranda" style="color:var(--text-muted); text-decoration:none;">Kebijakan Privasi</a>
+          <a href="#beranda" style="color:var(--text-muted); text-decoration:none;">Ketentuan Layanan</a>
+          <a href="#kepatuhan" style="color:var(--text-muted); text-decoration:none;">Kepatuhan Regulasi</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       Floating Action Widgets
+       ========================================================================== -->
+  <!-- Floating WhatsApp Action -->
+  <div class="floating-whatsapp-widget">
+    <div class="wa-tooltip">Konsultasi Live Demo</div>
+    <a href="https://wa.me/6285365811832?text=Halo%20MoizCare%2C%20saya%20ingin%20konsultasi%20mengenai%20SIMRS" target="_blank" class="wa-fab" aria-label="Hubungi WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.288.043.088.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.173.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Scroll To Top Button -->
+  <button type="button" class="scroll-top-btn" id="scrollTopBtn" aria-label="Kembali ke Atas">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg>
+  </button>
+
+  <!-- Lightbox Modal for Screenshots -->
+  <div class="modal-overlay" id="lightboxModal" role="dialog" aria-modal="true">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h4 class="modal-title" id="lightboxCaption">Pratinjau Antarmuka MoizCare</h4>
+        <button type="button" class="modal-close-btn" aria-label="Tutup">✕</button>
+      </div>
+      <div class="modal-body">
+        <img src="" alt="Pratinjau Layar MoizCare" class="modal-img-preview" id="lightboxImg">
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Application Bundle -->
+  <script src="js/app.js"></script>
+</body>
+</html>
