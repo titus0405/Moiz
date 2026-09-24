@@ -2012,15 +2012,12 @@ textarea.form-control {
   width: 68px;
   height: 68px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--cyan-primary), var(--purple-accent));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #050814;
+  object-fit: cover;
+  object-position: center;
+  border: 2px solid var(--cyan-primary);
   box-shadow: 0 0 20px rgba(0, 240, 255, 0.35);
   flex-shrink: 0;
+  display: block;
 }
 
 .consultant-details h4 {
