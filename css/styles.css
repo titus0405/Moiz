@@ -533,6 +533,41 @@ body {
   box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 240, 255, 0.2);
 }
 
+/* Hero Slideshow Styles */
+.hero-slideshow-container {
+  overflow: visible;
+}
+
+.slideshow-track {
+  position: relative;
+  width: 100%;
+  border-radius: calc(var(--radius-lg) - 6px);
+  overflow: hidden;
+  background: #040711;
+}
+
+.slide-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(1.02);
+  pointer-events: none;
+}
+
+.slide-item.active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  pointer-events: auto;
+  z-index: 1;
+}
+
 .mockup-image {
   width: 100%;
   height: auto;
@@ -540,10 +575,112 @@ body {
   display: block;
   object-fit: cover;
   transition: transform 0.5s ease;
+  cursor: pointer;
 }
 
-.mockup-container:hover .mockup-image {
+.slide-item:hover .mockup-image {
   transform: scale(1.015);
+}
+
+/* Slide Caption Overlay */
+.slide-info-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 1.25rem 1.25rem 1.25rem;
+  background: linear-gradient(to top, rgba(5, 8, 20, 0.92) 0%, rgba(5, 8, 20, 0.55) 65%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.slide-tag {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: var(--cyan-primary);
+}
+
+.slide-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+/* Slideshow Navigation Buttons */
+.slideshow-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(13, 21, 45, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+.slideshow-nav-btn:hover {
+  background: rgba(0, 240, 255, 0.2);
+  border-color: var(--cyan-primary);
+  color: var(--cyan-primary);
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+}
+
+.slideshow-nav-btn.prev-btn {
+  left: 18px;
+}
+
+.slideshow-nav-btn.next-btn {
+  right: 18px;
+}
+
+/* Slideshow Dots Indicators */
+.slideshow-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 5;
+}
+
+.dot-btn {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0;
+}
+
+.dot-btn:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.dot-btn.active {
+  width: 26px;
+  border-radius: var(--radius-full);
+  background: var(--cyan-primary);
+  box-shadow: 0 0 12px var(--cyan-primary);
 }
 
 /* Floating Badges over Mockup */

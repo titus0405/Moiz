@@ -11,12 +11,40 @@
   <meta name="author" content="CV. Panda Global Teknologi">
   <meta name="robots" content="index, follow">
 
-  <!-- Open Graph / Facebook -->
+  <!-- Open Graph / Facebook Multi-Image Slideshow -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.moizcare.com/">
   <meta property="og:title" content="MoizCare | SIM-RS Terintegrasi & Modern">
   <meta property="og:description" content="Transformasi Layanan Kesehatan Melalui SIM-RS Terintegrasi & Modern. 100% Siap Satu Sehat & BPJS Health Bridging.">
-  <meta property="og:image" content="assets/moizcare_hero_ui.jpg">
+  
+  <!-- Primary dynamic og:image for slideshow -->
+  <meta property="og:image" id="ogImagePrimary" content="https://www.moizcare.com/assets/moizcare_hero_ui.jpg">
+  <meta property="og:image:secure_url" content="https://www.moizcare.com/assets/moizcare_hero_ui.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:image:alt" content="MoizCare SIMRS Dashboard & E-Klinis Preview">
+
+  <!-- Multi-image OG references from assets (Carousel / Slideshow for social media scrapers) -->
+  <meta property="og:image" content="https://www.moizcare.com/assets/moizcare_features_preview.jpg">
+  <meta property="og:image:secure_url" content="https://www.moizcare.com/assets/moizcare_features_preview.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:image:alt" content="MoizCare Rekam Medis Elektronik Odontogram Gigi & Status Lokalis">
+
+  <meta property="og:image" content="https://www.moizcare.com/assets/moizcare_command_center.jpg">
+  <meta property="og:image:secure_url" content="https://www.moizcare.com/assets/moizcare_command_center.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:image:alt" content="MoizCare Hospital Command Center & Kios Antrean Mandiri">
+
+  <!-- Twitter Card Multi-Image / Summary Large Image -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MoizCare | SIM-RS Terintegrasi & Modern">
+  <meta name="twitter:description" content="Transformasi Layanan Kesehatan Melalui SIM-RS Terintegrasi & Modern. 100% Siap Satu Sehat & BPJS Health Bridging.">
+  <meta name="twitter:image" id="twitterImagePrimary" content="https://www.moizcare.com/assets/moizcare_hero_ui.jpg">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -157,10 +185,50 @@
         </div>
       </div>
 
-      <!-- Hero Visual Mockup -->
+      <!-- Hero Visual Mockup Slideshow -->
       <div class="hero-visual">
-        <div class="mockup-container">
-          <img src="assets/moizcare_hero_ui.jpg" alt="MoizCare SIMRS Dashboard Preview" class="mockup-image lightbox-trigger" data-caption="Dashboard Utama MoizCare: Monitoring Pasien, RME Terpadu, dan Status Sinkronisasi Satu Sehat">
+        <div class="mockup-container hero-slideshow-container" id="heroSlideshow">
+          <!-- Slides Track -->
+          <div class="slideshow-track">
+            <div class="slide-item active" data-index="0" data-og="https://www.moizcare.com/assets/moizcare_hero_ui.jpg">
+              <img src="assets/moizcare_hero_ui.jpg" alt="MoizCare SIMRS Dashboard Preview" class="mockup-image lightbox-trigger" data-caption="Dashboard Utama MoizCare: Monitoring Pasien, RME Terpadu, dan Status Sinkronisasi Satu Sehat">
+              <div class="slide-info-overlay">
+                <span class="slide-tag">Modul Utama</span>
+                <span class="slide-title">Dashboard SIMRS & Monitoring Pasien</span>
+              </div>
+            </div>
+
+            <div class="slide-item" data-index="1" data-og="https://www.moizcare.com/assets/moizcare_features_preview.jpg">
+              <img src="assets/moizcare_features_preview.jpg" alt="MoizCare RME & Odontogram Preview" class="mockup-image lightbox-trigger" data-caption="Rekam Medis Elektronik Terpadu, Odontogram Poli Gigi, & Status Lokalis Anatomi MoizCare">
+              <div class="slide-info-overlay">
+                <span class="slide-tag">Klinis & RME</span>
+                <span class="slide-title">Odontogram Gigi & Status Lokalis Anatomi</span>
+              </div>
+            </div>
+
+            <div class="slide-item" data-index="2" data-og="https://www.moizcare.com/assets/moizcare_command_center.jpg">
+              <img src="assets/moizcare_command_center.jpg" alt="MoizCare Command Center Preview" class="mockup-image lightbox-trigger" data-caption="Hospital Command Center & Kios Antrean Mandiri Pasien MoizCare">
+              <div class="slide-info-overlay">
+                <span class="slide-tag">Smart Hospital</span>
+                <span class="slide-title">Hospital Command Center & Kios Antrean</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls: Prev & Next -->
+          <button class="slideshow-nav-btn prev-btn" id="heroPrevBtn" aria-label="Slide Sebelumnya" type="button">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <button class="slideshow-nav-btn next-btn" id="heroNextBtn" aria-label="Slide Berikutnya" type="button">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+
+          <!-- Slideshow Dots & Active Indicator -->
+          <div class="slideshow-dots" id="heroDots">
+            <button class="dot-btn active" data-slide="0" aria-label="Slide 1" type="button"></button>
+            <button class="dot-btn" data-slide="1" aria-label="Slide 2" type="button"></button>
+            <button class="dot-btn" data-slide="2" aria-label="Slide 3" type="button"></button>
+          </div>
           
           <!-- Floating Badge Top Right -->
           <div class="floating-badge floating-badge-top">

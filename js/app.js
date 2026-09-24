@@ -6,6 +6,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
+  initHeroSlideshow();
   initTabs();
   initOdontogram();
   initPainScale();
@@ -561,3 +562,150 @@ function showToast(msg) {
     toast.classList.remove('show');
   }, 4000);
 }
+
+/* ==========================================================================
+   12. Hero Slideshow & Dynamic og:image Rotator from Assets
+   ========================================================================== */
+function initHeroSlideshow() {
+  const container = document.getElementById('heroSlideshow');
+  if (!container) return;
+
+  const slides = container.querySelectorAll('.slide-item');
+  const dots = container.querySelectorAll('.dot-btn');
+  const prevBtn = document.getElementById('heroPrevBtn');
+  const nextBtn = document.getElementById('heroNextBtn');
+  const ogMetaPrimary = document.getElementById('ogImagePrimary');
+  const twitterMetaPrimary = document.getElementById('twitterImagePrimary');
+
+  // List of images sourced from assets directory
+  const assetSlides = [
+    {
+      url: 'assets/moizcare_hero_ui.jpg',
+      fullOgUrl: 'https://www.moizcare.com/assets/moizcare_hero_ui.jpg',
+      alt: 'MoizCare SIMRS Dashboard & E-Klinis Preview'
+    },
+    {
+      url: 'assets/moizcare_features_preview.jpg',
+      fullOgUrl: 'https://www.moizcare.com/assets/moizcare_features_preview.jpg',
+      alt: 'MoizCare Rekam Medis Elektronik Odontogram Gigi & Status Lokalis'
+    },
+    {
+      url: 'assets/moizcare_command_center.jpg',
+      fullOgUrl: 'https://www.moizcare.com/assets/moizcare_command_center.jpg',
+      alt: 'MoizCare Hospital Command Center & Kios Antrean Mandiri'
+    }
+  ];
+
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+  let slideInterval = null;
+  const intervalDuration = 4500; // 4.5 seconds
+
+  function updateSlide(index) {
+    if (index < 0) index = totalSlides - 1;
+    if (index >= totalSlides) index = 0;
+    currentIndex = index;
+
+    // Toggle active slide
+    slides.forEach((slide, i) => {
+      if (i === currentIndex) {
+        slide.classList.add('active');
+      } else {
+        slide.classList.remove('active');
+      }
+    });
+
+    // Toggle active dot
+    dots.forEach((dot, i) => {
+      if (i === currentIndex) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+
+    // Synchronize and update property="og:image" and name="twitter:image"
+    const activeAsset = assetSlides[currentIndex] || assetSlides[0];
+    if (ogMetaPrimary) {
+      ogMetaPrimary.setAttribute('content', activeAsset.fullOgUrl);
+    }
+    if (twitterMetaPrimary) {
+      twitterMetaPrimary.setAttribute('content', activeAsset.fullOgUrl);
+    }
+  }
+
+  function nextSlide() {
+    updateSlide(currentIndex + 1);
+  }
+
+  function prevSlide() {
+    updateSlide(currentIndex - 1);
+  }
+
+  function startAutoPlay() {
+    stopAutoPlay();
+    slideInterval = setInterval(nextSlide, intervalDuration);
+  }
+
+  function stopAutoPlay() {
+    if (slideInterval) {
+      clearInterval(slideInterval);
+      slideInterval = null;
+    }
+  }
+
+  // Prev / Next button listeners
+  if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      prevSlide();
+      startAutoPlay();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      nextSlide();
+      startAutoPlay();
+    });
+  }
+
+  // Dots navigation
+  dots.forEach(dot => {
+    dot.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const slideIdx = parseInt(dot.dataset.slide, 10);
+      updateSlide(slideIdx);
+      startAutoPlay();
+    });
+  });
+
+  // Pause on hover
+  container.addEventListener('mouseenter', stopAutoPlay);
+  container.addEventListener('mouseleave', startAutoPlay);
+
+  // Touch Swipe for mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  container.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    stopAutoPlay();
+  }, { passive: true });
+
+  container.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    if (touchEndX < touchStartX - 40) {
+      nextSlide();
+    } else if (touchEndX > touchStartX + 40) {
+      prevSlide();
+    }
+    startAutoPlay();
+  }, { passive: true });
+
+  // Initial setup & start auto-rotation
+  updateSlide(0);
+  startAutoPlay();
+}
+
