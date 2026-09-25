@@ -92,10 +92,10 @@ body::before {
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
-  opacity: 0.30; /* Transparansi seimbang agar tidak terlalu tajam */
+  opacity: 0.12; /* Lembut & seimbang agar generative particle background menjadi fokus visual futuristik */
   pointer-events: none;
   z-index: 0;
-  filter: brightness(0.92);
+  filter: brightness(0.75) contrast(1.1);
 }
 
 /* Gradient overlay penyeimbang agar konten & teks tetap terbaca sangat jelas */
@@ -107,12 +107,50 @@ body::after {
   width: 100vw;
   height: 100vh;
   background: 
-    radial-gradient(circle at 15% 15%, rgba(0, 240, 255, 0.08) 0%, transparent 45%),
-    radial-gradient(circle at 85% 25%, rgba(255, 46, 116, 0.06) 0%, transparent 40%),
-    radial-gradient(circle at 50% 70%, rgba(157, 78, 221, 0.05) 0%, transparent 50%),
-    linear-gradient(to bottom, rgba(5, 8, 20, 0.62) 0%, rgba(7, 11, 25, 0.78) 50%, rgba(5, 8, 20, 0.88) 100%);
+    radial-gradient(circle at 15% 15%, rgba(0, 240, 255, 0.06) 0%, transparent 45%),
+    radial-gradient(circle at 85% 25%, rgba(255, 46, 116, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 50% 70%, rgba(157, 78, 221, 0.04) 0%, transparent 50%),
+    linear-gradient(to bottom, rgba(5, 8, 20, 0.70) 0%, rgba(7, 11, 25, 0.82) 50%, rgba(5, 8, 20, 0.92) 100%);
   pointer-events: none;
   z-index: 0;
+}
+
+/* ==========================================================================
+   Generative Particle Background Layer (Monochrome Gray Orbits, Spirals & Rings)
+   Inspired by https://v0-optimus-delta.vercel.app/
+   ========================================================================== */
+.generative-bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.generative-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Subtle architectural grid lines */
+.generative-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+  mask-image: radial-gradient(circle at 65% 42%, black 25%, transparent 85%);
+  -webkit-mask-image: radial-gradient(circle at 65% 42%, black 25%, transparent 85%);
+  opacity: 0.65;
 }
 
 .site-header,
@@ -123,7 +161,7 @@ body::after {
 .floating-whatsapp-widget,
 .scroll-top-btn {
   position: relative;
-  z-index: 1;
+  z-index: 10;
 }
 
 .site-header {

@@ -83,6 +83,15 @@
 <body>
 
   <!-- ==========================================================================
+       Generative Particle Background Layer (Monochrome Gray Orbits, Spirals & Rings)
+       Inspired by https://v0-optimus-delta.vercel.app/
+       ========================================================================== -->
+  <div class="generative-bg-container" id="generativeBgContainer" aria-hidden="true">
+    <div class="generative-grid-overlay"></div>
+    <canvas id="generativeCanvas" class="generative-canvas"></canvas>
+  </div>
+
+  <!-- ==========================================================================
        Header / Navigation Bar
        ========================================================================== -->
   <header class="site-header">
@@ -1719,6 +1728,8 @@
     </div>
   </div>
 
+  <!-- Generative Background Engine (Monochrome Gray Orbits, Spirals & Rings) -->
+  <script src="js/generative-bg.js?v=4.0"></script>
   <!-- JavaScript Application Bundle -->
   <script src="js/app.js"></script>
 </body>
