@@ -4,7 +4,7 @@
  * Master Application Script
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+function startApp() {
   initNavbar();
   initHeroSlideshow();
   initTabs();
@@ -17,7 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
   initLeadForm();
   initLightbox();
   initScrollTop();
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', startApp);
+} else {
+  startApp();
+}
 
 /* ==========================================================================
    1. Navbar & Smooth Scroll
@@ -489,6 +495,7 @@ function initLeadForm() {
 function initLightbox() {
   const modal = document.getElementById('lightboxModal');
   const modalImg = document.getElementById('lightboxImg');
+  const modalVideo = document.getElementById('lightboxVideo');
   const modalCaption = document.getElementById('lightboxCaption');
   const closeBtn = document.querySelector('.modal-close-btn');
   const triggers = document.querySelectorAll('.lightbox-trigger');
@@ -496,15 +503,29 @@ function initLightbox() {
   triggers.forEach(trigger => {
     trigger.addEventListener('click', (e) => {
       e.preventDefault();
-      const imgSrc = trigger.dataset.full || trigger.getAttribute('src');
+      const videoSrc = trigger.dataset.video || (trigger.tagName === 'VIDEO' ? trigger.getAttribute('src') : null);
+      const imgSrc = trigger.dataset.full || (trigger.tagName === 'IMG' ? trigger.getAttribute('src') : null);
       const caption = trigger.dataset.caption || 'Antarmuka Sistem Informasi Manajemen RS MoizCare';
 
-      if (modal && modalImg) {
+      if (!modal) return;
+
+      if (videoSrc && modalVideo) {
+        if (modalImg) modalImg.style.display = 'none';
+        modalVideo.style.display = 'block';
+        modalVideo.src = videoSrc;
+        modalVideo.play().catch(() => {});
+      } else if (imgSrc && modalImg) {
+        if (modalVideo) {
+          modalVideo.pause();
+          modalVideo.style.display = 'none';
+        }
+        modalImg.style.display = 'block';
         modalImg.src = imgSrc;
-        if (modalCaption) modalCaption.textContent = caption;
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
       }
+
+      if (modalCaption) modalCaption.textContent = caption;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
     });
   });
 
@@ -512,6 +533,10 @@ function initLightbox() {
     if (modal) {
       modal.classList.remove('active');
       document.body.style.overflow = '';
+      if (modalVideo) {
+        modalVideo.pause();
+        modalVideo.src = '';
+      }
     }
   }
 
@@ -574,44 +599,46 @@ function initHeroSlideshow() {
   const dots = container.querySelectorAll('.dot-btn');
   const prevBtn = document.getElementById('heroPrevBtn');
   const nextBtn = document.getElementById('heroNextBtn');
-  const ogMetaPrimary = document.getElementById('ogImagePrimary');
-  const twitterMetaPrimary = document.getElementById('twitterImagePrimary');
-
-  // List of images sourced from assets directory
-  const assetSlides = [
-    {
-      url: 'assets/moizcare_hero_ui.jpg',
-      fullOgUrl: 'https://www.moizcare.com/assets/moizcare_hero_ui.jpg',
-      alt: 'MoizCare SIMRS Dashboard & E-Klinis Preview'
-    },
-    {
-      url: 'assets/moizcare_features_preview.jpg',
-      fullOgUrl: 'https://www.moizcare.com/assets/moizcare_features_preview.jpg',
-      alt: 'MoizCare Rekam Medis Elektronik Odontogram Gigi & Status Lokalis'
-    },
-    {
-      url: 'assets/moizcare_command_center.jpg',
-      fullOgUrl: 'https://www.moizcare.com/assets/moizcare_command_center.jpg',
-      alt: 'MoizCare Hospital Command Center & Kios Antrean Mandiri'
-    }
-  ];
+  const soundToggleBtn = document.getElementById('heroSoundToggle');
 
   let currentIndex = 0;
   const totalSlides = slides.length;
-  let slideInterval = null;
-  const intervalDuration = 4500; // 4.5 seconds
+  let slideTimeout = null;
+  let isMuted = true;
+  const maxSlideDuration = 7000; // 7 seconds per slide
+
+  function updateSoundUI() {
+    if (!soundToggleBtn) return;
+    const mutedIcon = soundToggleBtn.querySelector('.sound-icon-muted');
+    const unmutedIcon = soundToggleBtn.querySelector('.sound-icon-unmuted');
+    if (mutedIcon) mutedIcon.style.display = isMuted ? 'block' : 'none';
+    if (unmutedIcon) unmutedIcon.style.display = isMuted ? 'none' : 'block';
+  }
 
   function updateSlide(index) {
     if (index < 0) index = totalSlides - 1;
     if (index >= totalSlides) index = 0;
     currentIndex = index;
 
-    // Toggle active slide
+    // Toggle active slide & manage video play / pause states
     slides.forEach((slide, i) => {
+      const vid = slide.querySelector('video');
       if (i === currentIndex) {
         slide.classList.add('active');
+        if (vid) {
+          vid.muted = isMuted;
+          vid.currentTime = 0;
+          const playPromise = vid.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(() => {});
+          }
+        }
       } else {
         slide.classList.remove('active');
+        if (vid) {
+          vid.pause();
+          vid.currentTime = 0;
+        }
       }
     });
 
@@ -624,14 +651,7 @@ function initHeroSlideshow() {
       }
     });
 
-    // Synchronize and update property="og:image" and name="twitter:image"
-    const activeAsset = assetSlides[currentIndex] || assetSlides[0];
-    if (ogMetaPrimary) {
-      ogMetaPrimary.setAttribute('content', activeAsset.fullOgUrl);
-    }
-    if (twitterMetaPrimary) {
-      twitterMetaPrimary.setAttribute('content', activeAsset.fullOgUrl);
-    }
+    scheduleNext();
   }
 
   function nextSlide() {
@@ -642,16 +662,39 @@ function initHeroSlideshow() {
     updateSlide(currentIndex - 1);
   }
 
-  function startAutoPlay() {
-    stopAutoPlay();
-    slideInterval = setInterval(nextSlide, intervalDuration);
+  function scheduleNext() {
+    clearTimeout(slideTimeout);
+    slideTimeout = setTimeout(nextSlide, maxSlideDuration);
   }
 
   function stopAutoPlay() {
-    if (slideInterval) {
-      clearInterval(slideInterval);
-      slideInterval = null;
+    clearTimeout(slideTimeout);
+    slideTimeout = null;
+  }
+
+  // Hook ended event on each video to auto-advance to next video smoothly
+  slides.forEach((slide) => {
+    const vid = slide.querySelector('video');
+    if (vid) {
+      vid.addEventListener('ended', () => {
+        if (slide.classList.contains('active')) {
+          nextSlide();
+        }
+      });
     }
+  });
+
+  // Sound Toggle Button
+  if (soundToggleBtn) {
+    soundToggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      isMuted = !isMuted;
+      updateSoundUI();
+      const currentVideo = slides[currentIndex]?.querySelector('video');
+      if (currentVideo) {
+        currentVideo.muted = isMuted;
+      }
+    });
   }
 
   // Prev / Next button listeners
@@ -659,7 +702,6 @@ function initHeroSlideshow() {
     prevBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       prevSlide();
-      startAutoPlay();
     });
   }
 
@@ -667,7 +709,6 @@ function initHeroSlideshow() {
     nextBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       nextSlide();
-      startAutoPlay();
     });
   }
 
@@ -677,13 +718,12 @@ function initHeroSlideshow() {
       e.stopPropagation();
       const slideIdx = parseInt(dot.dataset.slide, 10);
       updateSlide(slideIdx);
-      startAutoPlay();
     });
   });
 
   // Pause on hover
   container.addEventListener('mouseenter', stopAutoPlay);
-  container.addEventListener('mouseleave', startAutoPlay);
+  container.addEventListener('mouseleave', scheduleNext);
 
   // Touch Swipe for mobile
   let touchStartX = 0;
@@ -700,12 +740,13 @@ function initHeroSlideshow() {
       nextSlide();
     } else if (touchEndX > touchStartX + 40) {
       prevSlide();
+    } else {
+      scheduleNext();
     }
-    startAutoPlay();
   }, { passive: true });
 
-  // Initial setup & start auto-rotation
+  // Initial setup
+  updateSoundUI();
   updateSlide(0);
-  startAutoPlay();
 }
 

@@ -204,27 +204,43 @@
         <div class="mockup-container hero-slideshow-container" id="heroSlideshow">
           <!-- Slides Track -->
           <div class="slideshow-track">
-            <div class="slide-item active" data-index="0" data-og="https://www.moizcare.com/assets/moizcare_hero_ui.jpg">
-              <img src="assets/moizcare_hero_ui.jpg" alt="MoizCare SIMRS Dashboard Preview" class="mockup-image lightbox-trigger" data-caption="Dashboard Utama MoizCare: Monitoring Pasien, RME Terpadu, dan Status Sinkronisasi Satu Sehat">
+            <div class="slide-item active" data-index="0">
+              <video src="assets/1.mp4" class="mockup-media mockup-video lightbox-trigger" data-video="assets/1.mp4" data-caption="Demo Sistem MoizCare: Dashboard SIMRS & Monitoring Pasien" autoplay muted loop playsinline preload="metadata"></video>
               <div class="slide-info-overlay">
-                <span class="slide-tag">Modul Utama</span>
+                <span class="slide-tag">Live Demo SIMRS</span>
                 <span class="slide-title">Dashboard SIMRS & Monitoring Pasien</span>
               </div>
             </div>
 
-            <div class="slide-item" data-index="1" data-og="https://www.moizcare.com/assets/moizcare_features_preview.jpg">
-              <img src="assets/moizcare_features_preview.jpg" alt="MoizCare RME & Odontogram Preview" class="mockup-image lightbox-trigger" data-caption="Rekam Medis Elektronik Terpadu, Odontogram Poli Gigi, & Status Lokalis Anatomi MoizCare">
+            <div class="slide-item" data-index="1">
+              <video src="assets/2.mp4" class="mockup-media mockup-video lightbox-trigger" data-video="assets/2.mp4" data-caption="Demo Sistem MoizCare: Rekam Medis Elektronik Terpadu & Satu Sehat" muted loop playsinline preload="metadata"></video>
               <div class="slide-info-overlay">
                 <span class="slide-tag">Klinis & RME</span>
-                <span class="slide-title">Odontogram Gigi & Status Lokalis Anatomi</span>
+                <span class="slide-title">RME Terpadu, Odontogram & Satu Sehat</span>
               </div>
             </div>
 
-            <div class="slide-item" data-index="2" data-og="https://www.moizcare.com/assets/moizcare_command_center.jpg">
-              <img src="assets/moizcare_command_center.jpg" alt="MoizCare Command Center Preview" class="mockup-image lightbox-trigger" data-caption="Hospital Command Center & Kios Antrean Mandiri Pasien MoizCare">
+            <div class="slide-item" data-index="2">
+              <video src="assets/3.mp4" class="mockup-media mockup-video lightbox-trigger" data-video="assets/3.mp4" data-caption="Demo Sistem MoizCare: Hospital Command Center & Kios Antrean Mandiri" muted loop playsinline preload="metadata"></video>
               <div class="slide-info-overlay">
                 <span class="slide-tag">Smart Hospital</span>
                 <span class="slide-title">Hospital Command Center & Kios Antrean</span>
+              </div>
+            </div>
+
+            <div class="slide-item" data-index="3">
+              <video src="assets/4.mp4" class="mockup-media mockup-video lightbox-trigger" data-video="assets/4.mp4" data-caption="Demo Sistem MoizCare: Bridging BPJS & Integrasi Ekosistem Medis" muted loop playsinline preload="metadata"></video>
+              <div class="slide-info-overlay">
+                <span class="slide-tag">Interoperabilitas & BPJS</span>
+                <span class="slide-title">Bridging BPJS & Integrasi Ekosistem Medis</span>
+              </div>
+            </div>
+
+            <div class="slide-item" data-index="4">
+              <video src="assets/5.mp4" class="mockup-media mockup-video lightbox-trigger" data-video="assets/5.mp4" data-caption="Demo Sistem MoizCare: Dashboard Eksekutif, Akuntansi & Billing Terpadu" muted loop playsinline preload="metadata"></video>
+              <div class="slide-info-overlay">
+                <span class="slide-tag">Manajemen & Finansial</span>
+                <span class="slide-title">Dashboard Eksekutif, Akuntansi & Billing</span>
               </div>
             </div>
           </div>
@@ -237,11 +253,19 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
           </button>
 
+          <!-- Audio Sound Toggle Button -->
+          <button class="video-sound-toggle" id="heroSoundToggle" aria-label="Nyalakan / Matikan Suara Video" title="Nyalakan / Matikan Suara Video" type="button">
+            <svg class="sound-icon-muted" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+            <svg class="sound-icon-unmuted" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+          </button>
+
           <!-- Slideshow Dots & Active Indicator -->
           <div class="slideshow-dots" id="heroDots">
-            <button class="dot-btn active" data-slide="0" aria-label="Slide 1" type="button"></button>
-            <button class="dot-btn" data-slide="1" aria-label="Slide 2" type="button"></button>
-            <button class="dot-btn" data-slide="2" aria-label="Slide 3" type="button"></button>
+            <button class="dot-btn active" data-slide="0" aria-label="Video 1" type="button"></button>
+            <button class="dot-btn" data-slide="1" aria-label="Video 2" type="button"></button>
+            <button class="dot-btn" data-slide="2" aria-label="Video 3" type="button"></button>
+            <button class="dot-btn" data-slide="3" aria-label="Video 4" type="button"></button>
+            <button class="dot-btn" data-slide="4" aria-label="Video 5" type="button"></button>
           </div>
           
           <!-- Floating Badge Top Right -->
@@ -1723,14 +1747,15 @@
         <button type="button" class="modal-close-btn" aria-label="Tutup">✕</button>
       </div>
       <div class="modal-body">
-        <img src="" alt="Pratinjau Layar MoizCare" class="modal-img-preview" id="lightboxImg">
+        <img src="" alt="Pratinjau Layar MoizCare" class="modal-img-preview" id="lightboxImg" style="display:none;">
+        <video src="" class="modal-video-preview" id="lightboxVideo" controls playsinline style="display:none; width: 100%; max-height: 75vh; border-radius: var(--radius-md);"></video>
       </div>
     </div>
   </div>
 
   <!-- Generative Background Engine (Monochrome Gray Orbits, Spirals & Rings) -->
-  <script src="js/generative-bg.js?v=4.0"></script>
+  <script src="js/generative-bg.js?v=5.0"></script>
   <!-- JavaScript Application Bundle -->
-  <script src="js/app.js"></script>
+  <script src="js/app.js?v=2.0"></script>
 </body>
 </html>

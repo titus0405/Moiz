@@ -140,13 +140,13 @@
     getEpicenter() {
       if (this.width > 992) {
         return {
-          x: this.width * 0.60 + this.mouse.tiltY * 50,
-          y: Math.min(this.height * 0.44, 430) + (this.scrollY * 0.12) - this.mouse.tiltX * 35
+          x: this.width * 0.66 + this.mouse.tiltY * 35,
+          y: Math.min(this.height * 0.44, 430) + (this.scrollY * 0.10) - this.mouse.tiltX * 25
         };
       } else {
         return {
-          x: this.width * 0.50 + this.mouse.tiltY * 25,
-          y: this.height * 0.38 + (this.scrollY * 0.10) - this.mouse.tiltX * 20
+          x: this.width * 0.55 + this.mouse.tiltY * 20,
+          y: this.height * 0.38 + (this.scrollY * 0.08) - this.mouse.tiltX * 15
         };
       }
     }
@@ -156,22 +156,19 @@
       this.scale = Math.max(0.70, Math.min(1.25, baseDim / 800));
 
       // -------------------------------------------------------------
-      // 1. LINGKARAN (Concentric Circular Rings with Breathing Waves)
+      // 1. LINGKARAN (Minimalist Concentric Rings - Subtle & Clean)
       // -------------------------------------------------------------
       this.circles = [
-        { radius: 95, count: 32, speed: 0.45, glyph: '·', color: PALETTE.silverMid, pulseFreq: 2.2, pulseAmp: 6 },
-        { radius: 185, count: 48, speed: -0.35, glyph: '•', color: PALETTE.silverBright, pulseFreq: 1.8, pulseAmp: 8 },
-        { radius: 295, count: 64, speed: 0.28, glyph: '○', color: PALETTE.slateLight, pulseFreq: 1.4, pulseAmp: 10 },
-        { radius: 430, count: 80, speed: -0.22, glyph: '+', color: PALETTE.slateMid, pulseFreq: 1.0, pulseAmp: 12 },
-        { radius: 580, count: 96, speed: 0.15, glyph: '·', color: PALETTE.slateDark, pulseFreq: 0.8, pulseAmp: 15 }
+        { radius: 160, count: 18, speed: 0.20, glyph: '·', color: PALETTE.slateDark, pulseFreq: 1.2, pulseAmp: 3 },
+        { radius: 350, count: 24, speed: -0.15, glyph: '•', color: PALETTE.slateDark, pulseFreq: 0.9, pulseAmp: 4 }
       ];
 
       // -------------------------------------------------------------
-      // 2. SPIRAL (Archimedean Galactic Arms with Active Outward Stream)
+      // 2. SPIRAL (Gentle Micro-Cosmic Stream - Airy & Unobtrusive)
       // -------------------------------------------------------------
-      this.spiralArms = 3;
+      this.spiralArms = 2;
       this.spiralParticles = [];
-      const totalSpiral = 160;
+      const totalSpiral = 28;
 
       for (let i = 0; i < totalSpiral; i++) {
         const arm = i % this.spiralArms;
@@ -179,111 +176,63 @@
         this.spiralParticles.push({
           arm: arm,
           progress: progress,
-          baseRadius: 45 + Math.pow(progress, 1.15) * 600,
-          angleOffset: (arm * (Math.PI * 2 / this.spiralArms)) + (progress * Math.PI * 4.2),
-          speed: 0.40 + (1 - progress) * 0.50, // Active vortex angular speed
-          size: 1.5 + (1 - progress) * 2.2,
-          jitterRadius: (Math.random() - 0.5) * 26 * progress,
-          jitterAngle: (Math.random() - 0.5) * 0.15,
-          glyph: Math.random() > 0.65 ? GLYPHS[Math.floor(Math.random() * GLYPHS.length)] : null,
-          alphaBase: 0.35 + (1 - progress) * 0.65
+          baseRadius: 50 + Math.pow(progress, 1.2) * 440,
+          angleOffset: (arm * (Math.PI * 2 / this.spiralArms)) + (progress * Math.PI * 3.0),
+          speed: 0.22 + (1 - progress) * 0.22,
+          size: 1.0 + (1 - progress) * 1.4,
+          jitterRadius: (Math.random() - 0.5) * 14 * progress,
+          jitterAngle: (Math.random() - 0.5) * 0.08,
+          glyph: null,
+          alphaBase: 0.10 + (1 - progress) * 0.15
         });
       }
 
       // -------------------------------------------------------------
-      // 3. ORBIT BESAR 3D (Grand 3D Gyroscopic Astrolabe Orbits)
-      // High-eccentricity 3D ellipses tumbling, yawing, and streaming actively
+      // 3. ORBIT BESAR 3D (2 Minimalist & Elegant 3D Astrolabe Orbits)
+      // Clean, elegant 3D ellipses that let the background image shine through
       // -------------------------------------------------------------
       this.orbits = [
         {
-          name: 'Equatorial Celestial Orbit',
+          name: 'Primary Celestial Orbit',
           radiusX: 620,
-          radiusY: 280,
+          radiusY: 260,
           basePitch: 1.05,       // ~60 deg inclination
           baseRoll: 0.45,
           baseYaw: 0.20,
-          yawSpeed: 0.42,        // Continuous 3D rotation around Y (~24 deg/sec)
-          pitchSpeed: 0.36,      // Active 3D precession wave
-          rollSpeed: 0.26,
-          particleSpeed: 1.05,   // Fast orbital bead stream
-          dashSpeed: 95,         // Flowing laser dash speed (px/sec)
-          particleCount: 64,
-          color: PALETTE.silverBright,
-          trackColor: PALETTE.trackBright,
-          trackAlpha: 0.60,
-          lineWidth: 2.2,
-          comets: [0.0, 0.50],   // 2 glowing comet heads with motion tails
-          nodes: [
-            { t: 0.18, label: 'ORB-01', size: 6.0 },
-            { t: 0.68, label: 'ORB-02', size: 5.5 }
-          ]
-        },
-        {
-          name: 'Transverse Astrolabe Orbit',
-          radiusX: 740,
-          radiusY: 330,
-          basePitch: -0.92,      // ~ -53 deg
-          baseRoll: -0.55,
-          baseYaw: 1.15,
-          yawSpeed: -0.34,       // Counter-rotating 3D plane
-          pitchSpeed: 0.32,
-          rollSpeed: -0.22,
-          particleSpeed: -0.85,  // Counter-stream along ring
-          dashSpeed: -80,
-          particleCount: 72,
+          yawSpeed: 0.28,        // Smooth continuous 3D rotation (~16 deg/sec)
+          pitchSpeed: 0.24,      // Subtle 3D precession wave
+          rollSpeed: 0.18,
+          particleSpeed: 0.75,   // Graceful orbital flow
+          dashSpeed: 50,         // Gentle flowing dash
+          particleCount: 18,     // Clean & breathable count
           color: PALETTE.silverMid,
           trackColor: PALETTE.trackMid,
-          trackAlpha: 0.52,
-          lineWidth: 2.0,
-          comets: [0.25, 0.75],
+          trackAlpha: 0.32,      // Soft, airy transparency
+          lineWidth: 1.2,        // Delicate line
+          comets: [0.0],         // 1 subtle comet
           nodes: [
-            { t: 0.38, label: 'AST-A', size: 5.0 },
-            { t: 0.88, label: 'AST-B', size: 5.0 }
+            { t: 0.25, label: 'SYS-ORBIT', size: 3.5 }
           ]
         },
         {
-          name: 'Polar Meridian Orbit',
-          radiusX: 470,
-          radiusY: 210,
-          basePitch: 1.48,       // ~ 85 deg (steep polar inclination)
-          baseRoll: 0.25,
-          baseYaw: -0.65,
-          yawSpeed: 0.50,        // Swift polar gimbal spin
-          pitchSpeed: -0.40,
-          rollSpeed: 0.30,
-          particleSpeed: 1.30,   // Fast satellite stream
-          dashSpeed: 115,
-          particleCount: 50,
-          color: PALETTE.pureWhite,
-          trackColor: PALETTE.trackBright,
-          trackAlpha: 0.58,
-          lineWidth: 2.2,
-          comets: [0.12, 0.62],
-          nodes: [
-            { t: 0.45, label: 'POLAR-I', size: 6.0 }
-          ]
-        },
-        {
-          name: 'Horizon Celestial Boundary',
-          radiusX: 920,
-          radiusY: 410,
-          basePitch: 0.68,
-          baseRoll: -0.88,
-          baseYaw: 1.55,
-          yawSpeed: -0.22,       // Wide outer celestial sweep
-          pitchSpeed: 0.24,
-          rollSpeed: -0.18,
-          particleSpeed: -0.60,
-          dashSpeed: -55,
-          particleCount: 80,
-          color: PALETTE.slateMid,
-          trackColor: PALETTE.trackMid,
-          trackAlpha: 0.42,
-          lineWidth: 1.8,
-          comets: [0.35],
-          nodes: [
-            { t: 0.08, label: 'SYS-EXT', size: 4.5 }
-          ]
+          name: 'Secondary Astrolabe Orbit',
+          radiusX: 740,
+          radiusY: 300,
+          basePitch: -0.85,      // ~ -48 deg
+          baseRoll: -0.50,
+          baseYaw: 1.10,
+          yawSpeed: -0.20,       // Counter-rotating 3D plane
+          pitchSpeed: 0.18,
+          rollSpeed: -0.14,
+          particleSpeed: -0.55,  // Gentle counter-stream
+          dashSpeed: -35,
+          particleCount: 14,     // Clean & breathable count
+          color: PALETTE.slateLight,
+          trackColor: PALETTE.trackDim,
+          trackAlpha: 0.20,      // Very soft, non-intrusive
+          lineWidth: 1.0,
+          comets: [],
+          nodes: []
         }
       ];
 
@@ -294,20 +243,21 @@
           const t = i / orbit.particleCount;
           orbit.particles.push({
             t: t,
-            speedMul: 0.94 + Math.random() * 0.12,
-            size: 2.2 + Math.random() * 2.4,
-            glyph: Math.random() > 0.65 ? GLYPHS[Math.floor(Math.random() * GLYPHS.length)] : null
+            speedMul: 0.95 + Math.random() * 0.10,
+            size: 1.6 + Math.random() * 1.6,
+            glyph: Math.random() > 0.75 ? '·' : null
           });
         }
       });
 
       // -------------------------------------------------------------
       // 4. 3D CORE SPHERE (Optimus Signature Parametric Constellation)
+      // Delicate holographic whisper
       // -------------------------------------------------------------
-      this.sphereRadius = 145;
+      this.sphereRadius = 85;
       this.spherePoints = [];
-      const stepU = 0.20;
-      const stepV = 0.20;
+      const stepU = 0.38;
+      const stepV = 0.38;
       for (let u = 0; u < Math.PI * 2; u += stepU) {
         for (let v = 0; v < Math.PI; v += stepV) {
           const x = Math.sin(v) * Math.cos(u);
@@ -324,10 +274,10 @@
       }
 
       // -------------------------------------------------------------
-      // 5. AMBIENT COSMIC DUST (Full Viewport Floating Particles)
+      // 5. AMBIENT COSMIC DUST (Subtle Floating Specks)
       // -------------------------------------------------------------
       this.ambientParticles = [];
-      const ambientCount = 70;
+      const ambientCount = 20;
       for (let i = 0; i < ambientCount; i++) {
         this.ambientParticles.push({
           x: Math.random() * this.width,
@@ -473,9 +423,9 @@
         // 1. Faint circular orbit track
         ctx.beginPath();
         ctx.arc(cx, cy, r, 0, Math.PI * 2);
-        ctx.strokeStyle = `${PALETTE.trackMid}0.22)`;
-        ctx.lineWidth = 1.2;
-        ctx.setLineDash(idx % 2 === 0 ? [5, 10] : [3, 12]);
+        ctx.strokeStyle = `${PALETTE.trackMid}0.12)`;
+        ctx.lineWidth = 0.9;
+        ctx.setLineDash(idx % 2 === 0 ? [4, 12] : [2, 14]);
         ctx.stroke();
 
         // 2. Circumferential particles with active rotation
@@ -488,27 +438,27 @@
           const px = cx + Math.cos(angle) * r;
           const py = cy + Math.sin(angle) * r;
 
-          const alpha = 0.35 + 0.55 * Math.abs(Math.sin(angle * 2 + this.time * 2));
+          const alpha = 0.10 + 0.20 * Math.abs(Math.sin(angle * 2 + this.time * 2));
           ctx.fillStyle = `${circle.color}${alpha})`;
 
           if (i % 6 === 0) {
-            ctx.font = '12px monospace';
+            ctx.font = '10px monospace';
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
             ctx.fillText(circle.glyph, px, py);
           } else {
             ctx.beginPath();
-            const dotSize = i % 3 === 0 ? 2.4 : 1.5;
+            const dotSize = i % 3 === 0 ? 1.6 : 1.0;
             ctx.arc(px, py, dotSize, 0, Math.PI * 2);
             ctx.fill();
           }
 
           // Accent ticks on outer rings
           if (idx >= 2 && i % 8 === 0) {
-            const tr1 = r - 5;
-            const tr2 = r + 5;
-            ctx.strokeStyle = `${PALETTE.silverBright}${alpha * 0.85})`;
-            ctx.lineWidth = 1.4;
+            const tr1 = r - 4;
+            const tr2 = r + 4;
+            ctx.strokeStyle = `${PALETTE.silverBright}${alpha * 0.50})`;
+            ctx.lineWidth = 0.9;
             ctx.beginPath();
             ctx.moveTo(cx + Math.cos(angle) * tr1, cy + Math.sin(angle) * tr1);
             ctx.lineTo(cx + Math.cos(angle) * tr2, cy + Math.sin(angle) * tr2);
@@ -558,10 +508,10 @@
         const py = cy + Math.sin(currentAngle + p.jitterAngle) * radius;
 
         const wave = Math.sin(p.progress * 12 - this.time * 4);
-        const alpha = Math.max(0.12, Math.min(0.95, p.alphaBase + wave * 0.30));
+        const alpha = Math.max(0.06, Math.min(0.35, p.alphaBase + wave * 0.10));
 
         if (p.glyph) {
-          ctx.font = `${Math.floor(11 + (1 - p.progress) * 4)}px monospace`;
+          ctx.font = `${Math.floor(9 + (1 - p.progress) * 3)}px monospace`;
           ctx.textAlign = 'center';
           ctx.textBaseline = 'middle';
           ctx.fillStyle = `${PALETTE.silverBright}${alpha})`;
@@ -569,13 +519,13 @@
         } else {
           ctx.fillStyle = `${PALETTE.silverMid}${alpha})`;
           ctx.beginPath();
-          ctx.arc(px, py, p.size * currentScale, 0, Math.PI * 2);
+          ctx.arc(px, py, p.size * 0.8 * currentScale, 0, Math.PI * 2);
           ctx.fill();
 
           if (p.progress < 0.25) {
             ctx.beginPath();
-            ctx.arc(px, py, p.size * 2.2 * currentScale, 0, Math.PI * 2);
-            ctx.fillStyle = `${PALETTE.pureWhite}${alpha * 0.35})`;
+            ctx.arc(px, py, p.size * 1.6 * currentScale, 0, Math.PI * 2);
+            ctx.fillStyle = `${PALETTE.pureWhite}${alpha * 0.18})`;
             ctx.fill();
           }
         }
@@ -627,13 +577,13 @@
 
           const depthRatio = (midZ + 450) / 900; // 0 (far) to 1 (near)
           const clampedDepth = Math.max(0.15, Math.min(1.0, depthRatio));
-          const lineAlpha = orbit.trackAlpha * clampedDepth * 0.70;
+          const lineAlpha = orbit.trackAlpha * clampedDepth * 0.45;
 
           ctx.beginPath();
           ctx.moveTo(p1.proj.x, p1.proj.y);
           ctx.lineTo(p2.proj.x, p2.proj.y);
           ctx.strokeStyle = `${orbit.trackColor}${lineAlpha})`;
-          ctx.lineWidth = clampedDepth > 0.5 ? (orbit.lineWidth * 0.8) : (orbit.lineWidth * 0.5);
+          ctx.lineWidth = clampedDepth > 0.5 ? (orbit.lineWidth * 0.65) : (orbit.lineWidth * 0.4);
           ctx.stroke();
         }
 
@@ -648,9 +598,9 @@
           ctx.lineTo(trackPoints[i].proj.x, trackPoints[i].proj.y);
         }
         ctx.closePath();
-        ctx.strokeStyle = `${orbit.trackColor}${orbit.trackAlpha * 0.95})`;
-        ctx.lineWidth = orbit.lineWidth;
-        ctx.setLineDash([22, 16, 6, 16]);
+        ctx.strokeStyle = `${orbit.trackColor}${orbit.trackAlpha * 0.55})`;
+        ctx.lineWidth = orbit.lineWidth * 0.85;
+        ctx.setLineDash([14, 20]);
         ctx.lineDashOffset = -this.time * orbit.dashSpeed;
         ctx.stroke();
         ctx.restore();
@@ -661,7 +611,7 @@
         if (orbit.comets && orbit.comets.length) {
           orbit.comets.forEach(basePhase => {
             const tComet = ((basePhase + (this.time * orbit.particleSpeed * 0.14)) % 1 + 1) % 1;
-            const tailSteps = 12;
+            const tailSteps = 10;
 
             for (let s = tailSteps; s >= 0; s--) {
               const tPoint = ((tComet - s * 0.006) % 1 + 1) % 1;
@@ -674,23 +624,23 @@
               const proj = this.project(rot, cx, cy);
 
               const frac = 1 - (s / tailSteps);
-              const cometAlpha = frac * 0.85;
+              const cometAlpha = frac * 0.40;
 
               ctx.save();
               if (s === 0) {
                 // Bright glowing comet nucleus
-                ctx.fillStyle = `${PALETTE.pureWhite}0.98)`;
-                ctx.shadowColor = 'rgba(235, 245, 255, 0.95)';
-                ctx.shadowBlur = 14 * proj.scale * currentScale;
+                ctx.fillStyle = `${PALETTE.pureWhite}0.85)`;
+                ctx.shadowColor = 'rgba(235, 245, 255, 0.70)';
+                ctx.shadowBlur = 6 * proj.scale * currentScale;
 
                 ctx.beginPath();
-                ctx.arc(proj.x, proj.y, 4.2 * proj.scale * currentScale, 0, Math.PI * 2);
+                ctx.arc(proj.x, proj.y, 2.2 * proj.scale * currentScale, 0, Math.PI * 2);
                 ctx.fill();
 
-                // Crosshair sparkle
-                ctx.strokeStyle = `${PALETTE.pureWhite}0.85)`;
-                ctx.lineWidth = 1.0;
-                const spk = 7 * proj.scale * currentScale;
+                // Subtle Crosshair sparkle
+                ctx.strokeStyle = `${PALETTE.pureWhite}0.50)`;
+                ctx.lineWidth = 0.8;
+                const spk = 4 * proj.scale * currentScale;
                 ctx.beginPath();
                 ctx.moveTo(proj.x - spk, proj.y);
                 ctx.lineTo(proj.x + spk, proj.y);
@@ -699,9 +649,9 @@
                 ctx.stroke();
               } else {
                 // Fading tail beads
-                ctx.fillStyle = `${PALETTE.silverBright}${cometAlpha})`;
+                ctx.fillStyle = `${PALETTE.silverBright}${cometAlpha * 0.55})`;
                 ctx.beginPath();
-                ctx.arc(proj.x, proj.y, (1.2 + frac * 2.5) * proj.scale * currentScale, 0, Math.PI * 2);
+                ctx.arc(proj.x, proj.y, (0.8 + frac * 1.4) * proj.scale * currentScale, 0, Math.PI * 2);
                 ctx.fill();
               }
               ctx.restore();
@@ -724,40 +674,40 @@
             const proj = this.project(rot, cx, cy);
             const pScale = proj.scale * currentScale;
             const zNorm = Math.max(0, Math.min(1, (rot.z + 450) / 900));
-            const alpha = 0.40 + zNorm * 0.60;
+            const alpha = 0.22 + zNorm * 0.35;
 
             ctx.save();
 
             // 1. Expanding radar pulse ring
             const radarPhase = ((this.time * 1.8 + nIdx * 0.5) % 1);
-            const radarRadius = (node.size * 1.2 + radarPhase * 24) * pScale;
-            ctx.strokeStyle = `${PALETTE.trackBright}${(1 - radarPhase) * 0.70 * alpha})`;
-            ctx.lineWidth = 1.2;
+            const radarRadius = (node.size * 0.8 + radarPhase * 16) * pScale;
+            ctx.strokeStyle = `${PALETTE.trackBright}${(1 - radarPhase) * 0.35 * alpha})`;
+            ctx.lineWidth = 1.0;
             ctx.beginPath();
             ctx.arc(proj.x, proj.y, radarRadius, 0, Math.PI * 2);
             ctx.stroke();
 
-            // 2. Solid node core with glow
+            // 2. Solid node core with subtle glow
             ctx.fillStyle = `${PALETTE.pureWhite}${alpha})`;
-            ctx.shadowColor = 'rgba(235, 245, 255, 0.90)';
-            ctx.shadowBlur = 12 * pScale;
+            ctx.shadowColor = 'rgba(235, 245, 255, 0.60)';
+            ctx.shadowBlur = 6 * pScale;
             ctx.beginPath();
-            ctx.arc(proj.x, proj.y, node.size * pScale, 0, Math.PI * 2);
+            ctx.arc(proj.x, proj.y, node.size * 0.75 * pScale, 0, Math.PI * 2);
             ctx.fill();
 
             // 3. Rotating outer reticle bracket
-            ctx.strokeStyle = `${PALETTE.silverBright}${alpha * 0.85})`;
-            ctx.lineWidth = 1.2;
+            ctx.strokeStyle = `${PALETTE.silverBright}${alpha * 0.60})`;
+            ctx.lineWidth = 0.9;
             ctx.beginPath();
-            ctx.arc(proj.x, proj.y, node.size * 1.8 * pScale, 0, Math.PI * 2);
+            ctx.arc(proj.x, proj.y, node.size * 1.5 * pScale, 0, Math.PI * 2);
             ctx.stroke();
 
             // 4. Tech Monospace Label Badge
-            ctx.font = `${Math.max(9, Math.floor(10 * pScale))}px "JetBrains Mono", monospace`;
+            ctx.font = `${Math.max(8, Math.floor(9 * pScale))}px "JetBrains Mono", monospace`;
             ctx.textAlign = 'center';
             ctx.textBaseline = 'bottom';
-            ctx.fillStyle = `${PALETTE.pureWhite}${alpha * 0.95})`;
-            ctx.fillText(`[${node.label}]`, proj.x, proj.y - (node.size * 2.2 * pScale));
+            ctx.fillStyle = `${PALETTE.pureWhite}${alpha * 0.70})`;
+            ctx.fillText(`[${node.label}]`, proj.x, proj.y - (node.size * 1.8 * pScale));
 
             ctx.restore();
           });
@@ -792,26 +742,26 @@
           const p = item.data;
           const zNorm = Math.max(0, Math.min(1, (item.z + 450) / 900));
 
-          const alpha = 0.28 + zNorm * 0.70;
+          const alpha = 0.12 + zNorm * 0.28;
           const particleScale = proj.scale * currentScale;
 
           if (p.glyph) {
-            ctx.font = `${Math.floor(11 * particleScale)}px monospace`;
+            ctx.font = `${Math.floor(9 * particleScale)}px monospace`;
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
             ctx.fillStyle = `${orbit.color}${alpha})`;
             ctx.fillText(p.glyph, proj.x, proj.y);
           } else {
-            const r = p.size * particleScale * (0.8 + zNorm * 0.7);
+            const r = p.size * particleScale * (0.6 + zNorm * 0.4);
             ctx.fillStyle = `${orbit.color}${alpha})`;
             ctx.beginPath();
             ctx.arc(proj.x, proj.y, r, 0, Math.PI * 2);
             ctx.fill();
 
-            if (zNorm > 0.65) {
+            if (zNorm > 0.75) {
               ctx.beginPath();
-              ctx.arc(proj.x, proj.y, r * 2.4, 0, Math.PI * 2);
-              ctx.fillStyle = `${PALETTE.pureWhite}${alpha * 0.35})`;
+              ctx.arc(proj.x, proj.y, r * 1.8, 0, Math.PI * 2);
+              ctx.fillStyle = `${PALETTE.pureWhite}${alpha * 0.18})`;
               ctx.fill();
             }
           }
@@ -868,7 +818,7 @@
 
       projected.forEach(p => {
         const normZ = (p.z + 1) / 2;
-        const alpha = 0.18 + normZ * 0.75;
+        const alpha = 0.05 + normZ * 0.22;
         ctx.fillStyle = `${PALETTE.silverBright}${alpha})`;
         ctx.fillText(p.char, p.x, p.y);
       });
@@ -882,7 +832,7 @@
 
   function init() {
     window.generativeBg = new GenerativeBackground();
-    console.log('%c[MoizCare] 3D Generative Orbit Engine v4.0 ACTIVE & ANIMATING', 'color:#00f0ff;font-weight:bold;background:#050814;padding:4px 8px;border-radius:4px');
+    console.log('%c[MoizCare] 3D Generative Orbit Engine v5.0 Minimalist Edition ACTIVE & ANIMATING', 'color:#00f0ff;font-weight:bold;background:#050814;padding:4px 8px;border-radius:4px');
   }
 
   if (document.readyState === 'loading') {
